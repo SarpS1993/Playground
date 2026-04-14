@@ -711,7 +711,7 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
   <div id="market-overview-section">
     <div class="section-head">
       <div class="section-title">Market Overview</div>
-      <div class="section-desc">Total Investment Balances (AUM + AUC) · Source: EFAMA Q4 2025 · Click any card to explore</div>
+      <div class="section-desc">Total Household Investment Balances · Source: Central bank household accounts (NL: DNB Q3 2025 · BE: NBB Q4 2024) · EFAMA Q4 2025 (DE/ES/IT/PL — pending CB data) · Click any card to explore</div>
     </div>
     <div class="market-grid" id="market-grid"></div>
   </div>
@@ -810,9 +810,9 @@ const DATA = [
   {
     code:"DE", name:"Germany", flag:"🇩🇪",
     market:{
-      aum:    {v:2965.7, p:"Q4 2025", s:"EFAMA Quarterly Statistical Release N°104, Q4 2025 (Table 1)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      aum:    {v:2965.7, p:"Q4 2025", s:"EFAMA Q4 2025 (domicile-based) — note: ~€2,400bn is institutional AIFs; retail-comparable household figure est. €1,200–1,500bn (Bundesbank flow data; precise stock balance pending database extraction)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
       auc:    {v:null,   p:null,      s:"No official aggregate AUC data available", u:null},
-      inv:    {v:2965.7, p:"Q4 2025", s:"EFAMA Q4 2025 — AUM only (AUC not separately available)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      inv:    {v:2965.7, p:"Q4 2025", s:"EFAMA Q4 2025 — AUM only (AUC not separately available). Central bank household figure pending: Bundesbank estimates ~€1,200–1,500bn in household equity + fund shares (Q3 2025 flow data)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
       ptot:   {v:84.4,   p:"2024",   s:"Eurostat / Worldometer 2024 estimate", u:"https://www.worldometers.info/population/countries-in-europe-by-population/"},
       p18:    {v:70.8,   p:"2024",   s:"Estimated ~84% of total (Eurostat age structure)", u:"https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en"}
     },
@@ -827,9 +827,9 @@ const DATA = [
   {
     code:"BE", name:"Belgium", flag:"🇧🇪",
     market:{
-      aum:    {v:248.3, p:"Q4 2025", s:"EFAMA Quarterly Statistical Release N°104, Q4 2025 (Table 1)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      aum:    {v:390, p:"Q4 2024", s:"NBB — Belgian household investment balances: investment fund shares €303bn + listed shares €87bn. Incl. foreign-domiciled funds held by Belgian households. Excl. deposits & pension entitlements.", u:"https://www.nbb.be/en/statistical-updates/press-release-distribution-household-net-wealth-2024-iv"},
       auc:    {v:null,  p:null,      s:"No official aggregate AUC data available", u:null},
-      inv:    {v:248.3, p:"Q4 2025", s:"EFAMA Q4 2025 — AUM only (AUC not separately available)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      inv:    {v:390, p:"Q4 2024", s:"NBB Q4 2024 — household investment balances (funds + listed shares). Higher than EFAMA €248bn because it includes foreign-domiciled funds + direct stock holdings by Belgian households.", u:"https://www.nbb.be/en/statistical-updates/press-release-distribution-household-net-wealth-2024-iv"},
       ptot:   {v:11.4,  p:"2024",   s:"Eurostat / Worldometer 2024 estimate", u:"https://www.worldometers.info/population/countries-in-europe-by-population/"},
       p18:    {v:9.7,   p:"2024",   s:"Estimated ~85% of total (Eurostat age structure)", u:"https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en"}
     },
@@ -844,9 +844,9 @@ const DATA = [
   {
     code:"ES", name:"Spain", flag:"🇪🇸",
     market:{
-      aum:    {v:471.7, p:"Q4 2025", s:"EFAMA Quarterly Statistical Release N°104, Q4 2025 (Table 1)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      aum:    {v:471.7, p:"Q4 2025", s:"EFAMA Q4 2025 (domicile-based) — Banco de España Q4 2025 shows investment funds = 17% of €3.44tn household fin. assets = ~€585bn; plus listed shares; precise combined figure pending BExplora database extraction", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
       auc:    {v:null,  p:null,      s:"No official aggregate AUC data available", u:null},
-      inv:    {v:471.7, p:"Q4 2025", s:"EFAMA Q4 2025 — AUM only (AUC not separately available)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      inv:    {v:471.7, p:"Q4 2025", s:"EFAMA Q4 2025 — AUM only (AUC not separately available). Central bank household figure pending: Banco de España shows ~€585bn in investment funds alone (Q4 2025); listed shares additional", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
       ptot:   {v:48.1,  p:"2024",   s:"Eurostat / Worldometer 2024 estimate", u:"https://www.worldometers.info/population/countries-in-europe-by-population/"},
       p18:    {v:39.5,  p:"2024",   s:"Estimated ~82% of total (Eurostat age structure)", u:"https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en"}
     },
@@ -862,9 +862,9 @@ const DATA = [
   {
     code:"IT", name:"Italy", flag:"🇮🇹",
     market:{
-      aum:    {v:478.3, p:"Q4 2025", s:"EFAMA Quarterly Statistical Release N°104, Q4 2025 (Table 1)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      aum:    {v:478.3, p:"Q4 2025", s:"EFAMA Q4 2025 (domicile-based) — Banca d'Italia household data: investment funds €132.5bn (2023); Q4 2025 household figures not yet publicly available; pending Banca d'Italia conti finanziari update", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
       auc:    {v:null,  p:null,      s:"No official aggregate AUC data available", u:null},
-      inv:    {v:478.3, p:"Q4 2025", s:"EFAMA Q4 2025 — AUM only (AUC not separately available)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      inv:    {v:478.3, p:"Q4 2025", s:"EFAMA Q4 2025 — AUM only (AUC not separately available). Central bank household figure pending: Banca d'Italia Q4 2025 data not yet published.", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
       ptot:   {v:59.0,  p:"2024",   s:"Eurostat / Worldometer 2024 estimate", u:"https://www.worldometers.info/population/countries-in-europe-by-population/"},
       p18:    {v:49.2,  p:"2024",   s:"Estimated ~83% of total (Eurostat age structure)", u:"https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en"}
     },
@@ -880,9 +880,9 @@ const DATA = [
   {
     code:"NL", name:"Netherlands", flag:"🇳🇱",
     market:{
-      aum:    {v:869.3, p:"Q4 2025", s:"EFAMA Q4 2025 — incl. ~€750bn institutional AIFs (pension-like structures)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      aum:    {v:204.7, p:"Q3 2025", s:"DNB — Dutch household portfolio investments: investment funds €128.5bn + listed shares €69.4bn + bonds €6.7bn. Excl. deposits & pension entitlements.", u:"https://www.dnb.nl/en/general-news/statistical-news/2025/household-investments-break-through-the-200-billion-mark-due-to-rising-stock-prices/"},
       auc:    {v:null,  p:null,      s:"No official aggregate AUC data available", u:null},
-      inv:    {v:869.3, p:"Q4 2025", s:"EFAMA Q4 2025 — note: ~€750bn is institutional AIFs; retail UCITS: €119bn", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      inv:    {v:204.7, p:"Q3 2025", s:"DNB Q3 2025 — household investment balances (funds + listed shares + bonds). Excl. deposits & pension entitlements. EFAMA domicile-based figure (€869bn) excluded as it is 86% institutional pension-like AIFs.", u:"https://www.dnb.nl/en/general-news/statistical-news/2025/household-investments-break-through-the-200-billion-mark-due-to-rising-stock-prices/"},
       ptot:   {v:17.2,  p:"2024",   s:"Eurostat / Worldometer 2024 estimate", u:"https://www.worldometers.info/population/countries-in-europe-by-population/"},
       p18:    {v:14.6,  p:"2024",   s:"Estimated ~85% of total (Eurostat age structure)", u:"https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en"}
     },
@@ -897,9 +897,9 @@ const DATA = [
   {
     code:"PL", name:"Poland", flag:"🇵🇱",
     market:{
-      aum:    {v:103.0, p:"Q4 2025", s:"EFAMA Quarterly Statistical Release N°104, Q4 2025 (Table 1)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      aum:    {v:103.0, p:"Q4 2025", s:"EFAMA Q4 2025 (domicile-based) — NBP Poland household-specific investment data not published at sufficient granularity; total investment fund sector (all investors) ~PLN 520bn (~€123bn); household-only share not isolated", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
       auc:    {v:null,  p:null,      s:"No official aggregate AUC data available", u:null},
-      inv:    {v:103.0, p:"Q4 2025", s:"EFAMA Q4 2025 — AUM only (AUC not separately available)", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
+      inv:    {v:103.0, p:"Q4 2025", s:"EFAMA Q4 2025 — AUM only (AUC not separately available). NBP household investment data pending: central bank sector accounts do not yet isolate retail household equity/fund holdings.", u:"https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2025.pdf"},
       ptot:   {v:36.8,  p:"2024",   s:"Eurostat / Worldometer 2024 estimate", u:"https://www.worldometers.info/population/countries-in-europe-by-population/"},
       p18:    {v:30.5,  p:"2024",   s:"Estimated ~83% of total (Eurostat age structure)", u:"https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en"}
     },

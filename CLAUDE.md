@@ -17,7 +17,7 @@ Single-file HTML dashboard (`output/ing_investment_landscape.html`) benchmarking
 
 ### Data Layer (`const DATA`)
 Six country objects (DE, BE, ES, IT, NL, PL), each containing:
-- `market{}` — EFAMA Q4 2025 market-level AUM, AUC, population KPIs
+- `market{}` — market-level AUM, AUC, population KPIs. Source priority: (1) central bank household accounts, (2) EFAMA Q4 2025 (fallback)
 - `competitors[]` — competitor entries with `aum`, `auc`, `inv`, `clients`, `rev`, `period`, `url`
 
 ### ING Data (`const ING_DATA`)
@@ -38,7 +38,18 @@ Country-level internal figures (FY2025): Germany, Belgium, Spain, Italy, Netherl
 
 ## Data Standards
 
-### Target Metric
+### Market Size Metric (country `market.aum` / `market.inv`)
+**Preferred source:** Central bank household financial accounts — household portfolio investments = listed shares (F.511) + investment fund shares (F.52) + bonds (F.3). This is the demand-side retail investable market.
+- NL: DNB Q3 2025 — €204.7bn ✅
+- BE: NBB Q4 2024 — €390bn ✅
+- DE: Bundesbank — precise stock balance pending database extraction (est. €1,200–1,500bn) ⚠️
+- ES: Banco de España — precise listed shares + fund shares pending BExplora extraction (funds alone ~€585bn Q4 2025) ⚠️
+- IT: Banca d'Italia — Q4 2025 data not yet published; reverting to EFAMA ❌
+- PL: NBP — household-only not isolated from institutional; reverting to EFAMA ❌
+
+**Fallback (EFAMA):** Fund assets *domiciled* in country — supply-side; dominated by institutional AIFs in NL (€750bn+) and DE (~€2,400bn). Misleading for retail benchmarking.
+
+### Target Metric (competitor figures)
 Client investment AUM = mutual funds + discretionary mandates + structured products.
 Excludes: savings deposits, custody-only AUC (except brokers like DEGIRO/Fineco), institutional pension mandates.
 
