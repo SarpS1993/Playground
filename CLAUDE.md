@@ -38,16 +38,24 @@ Country-level internal figures (FY2025): Germany, Belgium, Spain, Italy, Netherl
 
 ## Data Standards
 
-### Market Size Metric (country `market.aum` / `market.inv`)
-**Preferred source:** Central bank household financial accounts — household portfolio investments = listed shares (F.511) + investment fund shares (F.52) + bonds (F.3). This is the demand-side retail investable market.
-- NL: DNB Q3 2025 — €204.7bn ✅
-- BE: NBB Q4 2024 — €390bn ✅
-- DE: Bundesbank — precise stock balance pending database extraction (est. €1,200–1,500bn) ⚠️
-- ES: Banco de España — precise listed shares + fund shares pending BExplora extraction (funds alone ~€585bn Q4 2025) ⚠️
-- IT: Banca d'Italia — Q4 2025 data not yet published; reverting to EFAMA ❌
-- PL: NBP — household-only not isolated from institutional; reverting to EFAMA ❌
+### Metric Definitions
+- **`market.aum`** = household investment fund shares (mutual funds) only — F.52 in national accounts
+- **`market.auc`** = household shares/equity + debt securities — F.511 + F.3 (direct market holdings / brokerage)
+- **`market.inv`** = total invested balances = aum + auc (full demand-side retail investable market)
 
-**Fallback (EFAMA):** Fund assets *domiciled* in country — supply-side; dominated by institutional AIFs in NL (€750bn+) and DE (~€2,400bn). Misleading for retail benchmarking.
+### Market Size Sources (central bank household financial accounts)
+All figures as of latest available period; FX: Poland PLN→EUR at NBP 31 Dec 2025 rate EUR/PLN 4.2267.
+
+| Country | AUM (funds) | AUC (shares+bonds) | Total inv. | Period | Source | Status |
+|---------|------------|-------------------|-----------|--------|--------|--------|
+| DE | €1,272.5bn | €2,045.4bn | €3,317.9bn | Q3 2025 | Bundesbank household stock positions | ✅ Official |
+| BE | €307.0bn | €127.7bn | €434.7bn | Q2 2025 | NBB Financial Accounts 2025-II | ✅ Official |
+| ES | €585.0bn | €246.2bn | €831.2bn | Q4 2025 | Banco de España household balance sheet | ✅ Official |
+| IT | ~€835.8bn | ~€2,179.5bn | ~€3,015.4bn | Q3 2025 est. | Banca d'Italia 2023 stock + official flows through Q3 2025 | ⚠️ Estimated |
+| NL | €128.5bn | €76.1bn | €204.7bn | Q3 2025 | DNB household securities holdings | ✅ Official |
+| PL | €54.5bn (PLN 230.2bn) | €174.6bn (PLN 738.0bn) | €229.1bn (PLN 968.2bn) | Q3 2025 | NBP household financial assets | ✅ Official |
+
+**Prior approach (EFAMA):** Fund assets *domiciled* in country — supply-side; dominated by institutional AIFs in NL (€750bn+) and DE (~€2,400bn). No longer used as primary source.
 
 ### Target Metric (competitor figures)
 Client investment AUM = mutual funds + discretionary mandates + structured products.
