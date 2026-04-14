@@ -182,6 +182,8 @@ body::after{
 .country-tab.sources-tab:hover{background:rgba(96,165,250,0.07);border-color:rgba(96,165,250,0.2);color:#93c5fd}
 .country-tab.sources-tab.active{color:#fff;background:rgba(96,165,250,0.12);border-color:rgba(96,165,250,0.32)}
 .country-tab.sources-tab.active::after{background:#60a5fa}
+.country-tab.home-tab{color:var(--t3);padding:7px 12px;flex-shrink:0}
+.country-tab.home-tab:hover{color:var(--orange-text);background:var(--orange-dim);border-color:rgba(255,85,0,0.28)}
 .tab-flag{display:inline-flex;align-items:center;flex-shrink:0}
 .tab-sep{flex:1;min-width:10px;height:1px;background:var(--border);margin:0 4px}
 .nav-label{font-family:var(--fm);font-size:10px;color:var(--t4);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
@@ -1518,7 +1520,7 @@ const state = {
   sortKey: 'aum',
   sortDir: 'desc',
   barsAnimated: {},
-  view: 'methodology'
+  view: 'country'
 };
 
 // ══════════════════════════════════════════
@@ -1617,7 +1619,7 @@ function renderTabs() {
   const mActive = state.view === 'methodology' ? ' active' : '';
   const qActive = state.view === 'caveats' ? ' active' : '';
   const sActive = state.view === 'sources' ? ' active' : '';
-  nav.innerHTML = `<span class="nav-label">Country:</span>${tabs}<span class="tab-sep"></span><button class="country-tab methodology-tab${mActive}" onclick="handleMethodologyTab()">📐 Methodology</button><button class="country-tab quality-tab${qActive}" onclick="handleQualityTab()">⚠ Data Quality</button><button class="country-tab sources-tab${sActive}" onclick="handleSourcesTab()">📄 Sources</button>`;
+  nav.innerHTML = `<button class="country-tab home-tab" onclick="document.getElementById('landing').scrollIntoView({behavior:'smooth'})" title="Back to overview" aria-label="Back to landing page"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 5.5L6.5 1 12 5.5V12H8.5V8.5H4.5V12H1V5.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></svg></button><span class="tab-sep"></span><span class="nav-label">Country:</span>${tabs}<span class="tab-sep"></span><button class="country-tab methodology-tab${mActive}" onclick="handleMethodologyTab()">📐 Methodology</button><button class="country-tab quality-tab${qActive}" onclick="handleQualityTab()">⚠ Data Quality</button><button class="country-tab sources-tab${sActive}" onclick="handleSourcesTab()">📄 Sources</button>`;
 }
 
 // ══════════════════════════════════════════
@@ -2521,10 +2523,11 @@ function toggleAcc(code) {
 //  INIT
 // ══════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
+  renderTabs();
   renderMarketCards();
   renderMarketShare();
+  renderDeepDive(state.activeCode);
   renderSources();
-  handleMethodologyTab();
 });
 </script>
 
