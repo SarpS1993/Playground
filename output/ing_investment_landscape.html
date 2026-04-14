@@ -734,27 +734,71 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 
 /* ─── ING MARKET SHARE ─── */
 .mshare-section{margin-top:52px}
-.mshare-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-}
-@media(max-width:1100px){.mshare-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:680px){.mshare-grid{grid-template-columns:1fr}}
 
+/* Default grid: 3 columns */
+.mshare-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+/* Active state: 5 equal columns — active card spans all 5 (full row), 5 collapsed fit below */
+.mshare-grid.has-active{grid-template-columns:repeat(5,1fr)}
+@media(max-width:1100px){.mshare-grid:not(.has-active){grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.mshare-grid:not(.has-active){grid-template-columns:1fr}}
+
+/* ── Base card ── */
 .mshare-card{
   background:linear-gradient(145deg,var(--bg2) 0%,var(--bg3) 100%);
   border:1px solid var(--border);border-radius:var(--r16);
   padding:26px 26px 22px;
   position:relative;overflow:hidden;
-  transition:border-color 260ms var(--ease),box-shadow 260ms var(--ease);
+  cursor:pointer;
+  transition:border-color 300ms var(--ease),box-shadow 300ms var(--ease),
+             padding 300ms var(--ease);
 }
 .mshare-card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent 0%,rgba(255,85,0,0.18) 40%,rgba(0,212,255,0.14) 70%,transparent 100%);
+  transition:background 300ms var(--ease);
 }
 .mshare-card:hover{
   border-color:var(--border2);
   box-shadow:0 8px 36px rgba(0,0,0,0.4),0 0 0 1px rgba(255,85,0,0.1);
 }
+
+/* ── ACTIVE card ── full-width expanded */
+.mshare-card.mshare-active{
+  grid-column:1/-1;order:-1;
+  border-color:rgba(255,85,0,0.3);
+  background:linear-gradient(145deg,rgba(255,85,0,0.05) 0%,var(--bg3) 100%);
+  box-shadow:0 0 0 1px rgba(255,85,0,0.12),0 12px 48px rgba(255,85,0,0.06);
+  cursor:default;padding:28px 32px;
+}
+.mshare-card.mshare-active::before{
+  background:linear-gradient(90deg,var(--orange) 0%,rgba(0,212,255,0.5) 60%,transparent 100%);
+}
+
+/* ── COLLAPSED card ── compact, one column each */
+.mshare-card.mshare-collapsed{
+  padding:16px 14px;
+  border-color:var(--border);
+  background:var(--bg2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+}
+.mshare-card.mshare-collapsed:hover{
+  border-color:rgba(255,85,0,0.24);
+  box-shadow:0 4px 20px rgba(0,0,0,0.3),0 0 0 1px rgba(255,85,0,0.1);
+}
+
+/* ── Content visibility toggles ── */
+.mshare-normal-content{display:block}
+.mshare-expanded-content{display:none}
+.mshare-collapsed-content{display:none}
+
+.mshare-card.mshare-active   .mshare-normal-content{display:none}
+.mshare-card.mshare-active   .mshare-expanded-content{display:flex}
+.mshare-card.mshare-collapsed .mshare-normal-content{display:none}
+.mshare-card.mshare-collapsed .mshare-collapsed-content{display:flex}
+
+/* ── Normal card internals ── */
 .mshare-card-top{
   display:flex;align-items:center;justify-content:space-between;
   margin-bottom:20px;padding-bottom:16px;
@@ -769,80 +813,121 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
   background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.22);
   color:var(--green);white-space:nowrap;
 }
-
 .mshare-buckets{display:flex;flex-direction:column;gap:13px}
-.mshare-bucket{}
 .mshare-bucket-header{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:6px;
+  display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;
 }
 .mshare-bucket-label{
   font-family:var(--fm);font-size:9px;color:var(--t3);
   letter-spacing:0.11em;text-transform:uppercase;
   display:flex;align-items:center;gap:6px;
 }
-.mshare-bucket-dot{
-  width:5px;height:5px;border-radius:50%;flex-shrink:0;
-}
+.mshare-bucket-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
 .dot-aum{background:var(--orange);box-shadow:0 0 5px rgba(255,85,0,0.6)}
 .dot-auc{background:var(--cyan);box-shadow:0 0 5px rgba(0,212,255,0.5)}
 .dot-total{background:var(--green);box-shadow:0 0 5px rgba(0,255,136,0.5)}
-
 .mshare-bucket-pct{
-  font-family:var(--fm);font-size:14px;font-weight:400;
-  letter-spacing:-0.5px;line-height:1;
+  font-family:var(--fm);font-size:14px;font-weight:400;letter-spacing:-0.5px;line-height:1;
 }
 .pct-aum{color:var(--orange-text)}
 .pct-auc{color:var(--cyan)}
 .pct-total{color:var(--green)}
-
 .mshare-track{
-  height:5px;background:rgba(255,255,255,0.05);
-  border-radius:3px;overflow:hidden;position:relative;
+  height:5px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden;
 }
 .mshare-fill{
   height:100%;border-radius:3px;width:0%;
   transition:width 1100ms cubic-bezier(0.4,0,0.2,1);
-  position:relative;
 }
-.mshare-fill-aum{
-  background:linear-gradient(90deg,rgba(255,85,0,0.7),var(--orange));
-  box-shadow:0 0 8px rgba(255,85,0,0.4);
-}
-.mshare-fill-auc{
-  background:linear-gradient(90deg,rgba(0,180,220,0.7),var(--cyan));
-  box-shadow:0 0 8px rgba(0,212,255,0.35);
-}
-.mshare-fill-total{
-  background:linear-gradient(90deg,rgba(0,200,100,0.7),var(--green));
-  box-shadow:0 0 8px rgba(0,255,136,0.35);
-}
-
+.mshare-fill-aum{background:linear-gradient(90deg,rgba(255,85,0,0.7),var(--orange));box-shadow:0 0 8px rgba(255,85,0,0.4)}
+.mshare-fill-auc{background:linear-gradient(90deg,rgba(0,180,220,0.7),var(--cyan));box-shadow:0 0 8px rgba(0,212,255,0.35)}
+.mshare-fill-total{background:linear-gradient(90deg,rgba(0,200,100,0.7),var(--green));box-shadow:0 0 8px rgba(0,255,136,0.35)}
 .mshare-ing-vals{
   display:flex;gap:0;margin-top:16px;padding-top:14px;
   border-top:1px solid var(--border);
-  font-family:var(--fm);font-size:9px;color:var(--t4);
-  letter-spacing:0.06em;
+  font-family:var(--fm);font-size:9px;color:var(--t4);letter-spacing:0.06em;
 }
 .mshare-ing-val-item{flex:1;text-align:center}
 .mshare-ing-val-item:not(:last-child){border-right:1px solid var(--border)}
 .mshare-ing-abs{font-size:12px;color:var(--t3);display:block;margin-bottom:2px;letter-spacing:-0.3px}
 
+/* ── Expanded card layout ── */
+.mshare-expanded-content{
+  gap:0;align-items:stretch;width:100%;
+}
+.mshare-exp-left{
+  flex:0 0 240px;display:flex;flex-direction:column;justify-content:space-between;
+  padding-right:28px;margin-right:28px;
+  border-right:1px solid var(--border);
+}
+.mshare-exp-country{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.mshare-exp-name{font-family:var(--fd);font-size:22px;font-weight:700;color:var(--t1);letter-spacing:-0.3px;line-height:1.1}
+.mshare-exp-code{font-family:var(--fm);font-size:11px;color:var(--t3);letter-spacing:0.1em;margin-top:3px}
+.mshare-exp-ing{
+  display:flex;flex-direction:column;gap:6px;
+  padding:14px;background:rgba(255,85,0,0.04);
+  border:1px solid rgba(255,85,0,0.14);border-radius:var(--r8);
+}
+.mshare-exp-ing-label{font-family:var(--fm);font-size:8px;color:var(--orange-text);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:2px}
+.mshare-exp-ing-row{display:flex;justify-content:space-between;align-items:baseline}
+.mshare-exp-ing-key{font-family:var(--fm);font-size:9px;color:var(--t3);letter-spacing:0.06em}
+.mshare-exp-ing-val{font-family:var(--fm);font-size:13px;color:var(--t1);letter-spacing:-0.3px}
+
+.mshare-exp-right{
+  flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start;
+}
+.mshare-exp-bucket{
+  display:flex;flex-direction:column;gap:10px;
+  padding:18px 16px;
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);border-radius:var(--r12);
+}
+.mshare-exp-bucket-label{
+  font-family:var(--fm);font-size:9px;color:var(--t3);
+  letter-spacing:0.12em;text-transform:uppercase;
+  display:flex;align-items:center;gap:7px;
+}
+.mshare-exp-pct{
+  font-family:var(--fm);font-size:32px;font-weight:400;
+  letter-spacing:-1.5px;line-height:1;
+}
+.mshare-exp-track{
+  height:6px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden;
+}
+.mshare-exp-fill{
+  height:100%;border-radius:3px;
+  transition:width 1100ms cubic-bezier(0.4,0,0.2,1);width:0%;
+}
+.mshare-exp-context{font-family:var(--fm);font-size:9px;color:var(--t4);line-height:1.6}
+
+/* ── Collapsed card layout ── */
+.mshare-collapsed-content{
+  flex-direction:column;align-items:center;gap:6px;width:100%;
+}
+.mshare-coll-flag{display:flex;align-items:center;justify-content:center}
+.mshare-coll-code{font-family:var(--fm);font-size:10px;color:var(--t3);letter-spacing:0.1em}
+.mshare-coll-total{
+  font-family:var(--fm);font-size:20px;letter-spacing:-0.8px;line-height:1;
+  color:var(--green);
+}
+.mshare-coll-subs{
+  display:flex;gap:8px;font-family:var(--fm);font-size:9px;
+}
+.mshare-coll-aum{color:var(--orange-text)}
+.mshare-coll-auc{color:var(--cyan)}
+.mshare-coll-hint{font-family:var(--fm);font-size:8px;color:var(--t4);letter-spacing:0.06em;text-align:center}
+
 /* Section summary strip */
 .mshare-summary{
   display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);border-radius:var(--r12);
-  overflow:hidden;margin-top:22px;
+  background:var(--border);border:1px solid var(--border);
+  border-radius:var(--r12);overflow:hidden;margin-top:16px;
 }
 .mshare-summary-cell{
-  background:var(--bg2);
-  padding:18px 22px;display:flex;flex-direction:column;gap:6px;
-  position:relative;
+  background:var(--bg2);padding:18px 22px;
+  display:flex;flex-direction:column;gap:6px;position:relative;
 }
-.mshare-summary-cell::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-}
+.mshare-summary-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
 .mshare-summary-cell:nth-child(1)::before{background:linear-gradient(90deg,var(--orange),rgba(255,85,0,0))}
 .mshare-summary-cell:nth-child(2)::before{background:linear-gradient(90deg,var(--cyan),rgba(0,212,255,0))}
 .mshare-summary-cell:nth-child(3)::before{background:linear-gradient(90deg,var(--green),rgba(0,255,136,0))}
@@ -1332,83 +1417,126 @@ function renderMarketShare() {
   const el = document.getElementById('mshare-section');
   if (!el) return;
 
-  // Max share across all metrics for proportional bar scaling (cap at 15%)
   const SCALE_MAX = 15;
+  const fmt  = v => v !== null ? v.toFixed(1) + '%' : '—';
+  const barW = v => v !== null ? Math.min(v / SCALE_MAX * 100, 100).toFixed(1) + '%' : '0%';
 
   const cards = DATA.map(c => {
     const ing = ING_DATA[c.name];
     if (!ing) return '';
 
-    const mAum  = c.market.aum.v;
-    const mAuc  = c.market.auc.v;
-    const mInv  = c.market.inv.v;
+    const mAum  = c.market.aum.v, mAuc = c.market.auc.v, mInv = c.market.inv.v;
+    const pAum   = mAum ? (ing.aum / mAum * 100) : null;
+    const pAuc   = mAuc ? (ing.auc / mAuc * 100) : null;
+    const pTotal = mInv ? (ing.inv / mInv * 100) : null;
 
-    const pAum   = mAum  ? (ing.aum / mAum  * 100) : null;
-    const pAuc   = mAuc  ? (ing.auc / mAuc  * 100) : null;
-    const pTotal = mInv  ? (ing.inv / mInv  * 100) : null;
-
-    const fmt = v => v !== null ? v.toFixed(1) + '%' : '—';
-
-    // Find leading metric for badge
     const vals = [pAum, pAuc, pTotal].filter(v => v !== null);
     const maxPct = vals.length ? Math.max(...vals) : 0;
-    const leaderLabel = pTotal === maxPct ? 'Total' : pAuc === maxPct ? 'AUC leader' : 'AUM leader';
+    const leaderLabel = pAuc === maxPct ? 'AUC leader' : pAum === maxPct ? 'AUM leader' : 'Total leader';
     const showBadge = maxPct >= 5;
 
-    const barW = v => v !== null ? Math.min(v / SCALE_MAX * 100, 100).toFixed(1) + '%' : '0%';
+    // ── Normal card (3-col grid default) ──
+    const normalContent = `
+      <div class="mshare-normal-content">
+        <div class="mshare-card-top">
+          <div class="mshare-country-id">
+            <span>${flag(c.code, 'md')}</span>
+            <div>
+              <div class="mshare-country-name">${c.name}</div>
+              <div class="mshare-country-code">${c.code}</div>
+            </div>
+          </div>
+          ${showBadge ? `<div class="mshare-leader-badge">▲ ${fmt(maxPct)} ${leaderLabel}</div>` : ''}
+        </div>
+        <div class="mshare-buckets">
+          <div class="mshare-bucket">
+            <div class="mshare-bucket-header">
+              <div class="mshare-bucket-label"><span class="mshare-bucket-dot dot-aum"></span>AUM Share</div>
+              <div class="mshare-bucket-pct pct-aum">${fmt(pAum)}</div>
+            </div>
+            <div class="mshare-track"><div class="mshare-fill mshare-fill-aum" data-w="${barW(pAum)}"></div></div>
+          </div>
+          <div class="mshare-bucket">
+            <div class="mshare-bucket-header">
+              <div class="mshare-bucket-label"><span class="mshare-bucket-dot dot-auc"></span>AUC Share</div>
+              <div class="mshare-bucket-pct pct-auc">${fmt(pAuc)}</div>
+            </div>
+            <div class="mshare-track"><div class="mshare-fill mshare-fill-auc" data-w="${barW(pAuc)}"></div></div>
+          </div>
+          <div class="mshare-bucket">
+            <div class="mshare-bucket-header">
+              <div class="mshare-bucket-label"><span class="mshare-bucket-dot dot-total"></span>Total Share</div>
+              <div class="mshare-bucket-pct pct-total">${fmt(pTotal)}</div>
+            </div>
+            <div class="mshare-track"><div class="mshare-fill mshare-fill-total" data-w="${barW(pTotal)}"></div></div>
+          </div>
+        </div>
+        <div class="mshare-ing-vals">
+          <div class="mshare-ing-val-item"><span class="mshare-ing-abs">€${ing.aum}bn</span>ING AUM</div>
+          <div class="mshare-ing-val-item"><span class="mshare-ing-abs">€${ing.auc}bn</span>ING AUC</div>
+          <div class="mshare-ing-val-item"><span class="mshare-ing-abs">€${ing.inv}bn</span>ING Total</div>
+        </div>
+      </div>`;
 
-    return `
-    <div class="mshare-card" data-code="${c.code}">
-      <div class="mshare-card-top">
-        <div class="mshare-country-id">
-          <span>${flag(c.code, 'md')}</span>
+    // ── Expanded card (active, full-width) ──
+    const expandedContent = `
+      <div class="mshare-expanded-content">
+        <div class="mshare-exp-left">
           <div>
-            <div class="mshare-country-name">${c.name}</div>
-            <div class="mshare-country-code">${c.code}</div>
-          </div>
-        </div>
-        ${showBadge ? `<div class="mshare-leader-badge">▲ ${fmt(maxPct)} ${leaderLabel}</div>` : ''}
-      </div>
-      <div class="mshare-buckets">
-        <div class="mshare-bucket">
-          <div class="mshare-bucket-header">
-            <div class="mshare-bucket-label">
-              <span class="mshare-bucket-dot dot-aum"></span>AUM Share
+            <div class="mshare-exp-country">
+              <span>${flag(c.code, 'lg')}</span>
+              <div>
+                <div class="mshare-exp-name">${c.name}</div>
+                <div class="mshare-exp-code">${c.code} · FY2025</div>
+              </div>
             </div>
-            <div class="mshare-bucket-pct pct-aum" data-target="${pAum ?? 0}" data-dec="1" data-suffix="%">${pAum !== null ? pAum.toFixed(1)+'%' : '—'}</div>
+            ${showBadge ? `<div class="mshare-leader-badge" style="display:inline-flex;margin-bottom:16px">▲ ${fmt(maxPct)} ${leaderLabel}</div>` : ''}
           </div>
-          <div class="mshare-track"><div class="mshare-fill mshare-fill-aum" data-w="${barW(pAum)}"></div></div>
-        </div>
-        <div class="mshare-bucket">
-          <div class="mshare-bucket-header">
-            <div class="mshare-bucket-label">
-              <span class="mshare-bucket-dot dot-auc"></span>AUC Share
-            </div>
-            <div class="mshare-bucket-pct pct-auc" data-target="${pAuc ?? 0}" data-dec="1" data-suffix="%">${pAuc !== null ? pAuc.toFixed(1)+'%' : '—'}</div>
+          <div class="mshare-exp-ing">
+            <div class="mshare-exp-ing-label">ING Internal FY2025</div>
+            <div class="mshare-exp-ing-row"><span class="mshare-exp-ing-key">AUM (Funds)</span><span class="mshare-exp-ing-val pct-aum">€${ing.aum}bn</span></div>
+            <div class="mshare-exp-ing-row"><span class="mshare-exp-ing-key">AUC (Direct)</span><span class="mshare-exp-ing-val pct-auc">€${ing.auc}bn</span></div>
+            <div class="mshare-exp-ing-row"><span class="mshare-exp-ing-key">Total Inv.</span><span class="mshare-exp-ing-val pct-total">€${ing.inv}bn</span></div>
           </div>
-          <div class="mshare-track"><div class="mshare-fill mshare-fill-auc" data-w="${barW(pAuc)}"></div></div>
         </div>
-        <div class="mshare-bucket">
-          <div class="mshare-bucket-header">
-            <div class="mshare-bucket-label">
-              <span class="mshare-bucket-dot dot-total"></span>Total Share
-            </div>
-            <div class="mshare-bucket-pct pct-total" data-target="${pTotal ?? 0}" data-dec="1" data-suffix="%">${pTotal !== null ? pTotal.toFixed(1)+'%' : '—'}</div>
+        <div class="mshare-exp-right">
+          <div class="mshare-exp-bucket">
+            <div class="mshare-exp-bucket-label"><span class="mshare-bucket-dot dot-aum"></span>AUM Market Share</div>
+            <div class="mshare-exp-pct pct-aum">${fmt(pAum)}</div>
+            <div class="mshare-exp-track"><div class="mshare-exp-fill mshare-fill-aum" data-w="${barW(pAum)}"></div></div>
+            <div class="mshare-exp-context">ING €${ing.aum}bn vs €${mAum ? Math.round(mAum).toLocaleString('en-US') : '—'}bn market<br>Mutual fund shares · ${c.market.aum.p}</div>
           </div>
-          <div class="mshare-track"><div class="mshare-fill mshare-fill-total" data-w="${barW(pTotal)}"></div></div>
+          <div class="mshare-exp-bucket">
+            <div class="mshare-exp-bucket-label"><span class="mshare-bucket-dot dot-auc"></span>AUC Market Share</div>
+            <div class="mshare-exp-pct pct-auc">${fmt(pAuc)}</div>
+            <div class="mshare-exp-track"><div class="mshare-exp-fill mshare-fill-auc" data-w="${barW(pAuc)}"></div></div>
+            <div class="mshare-exp-context">ING €${ing.auc}bn vs €${mAuc ? Math.round(mAuc).toLocaleString('en-US') : '—'}bn market<br>Shares &amp; bonds · ${c.market.auc.p}</div>
+          </div>
+          <div class="mshare-exp-bucket">
+            <div class="mshare-exp-bucket-label"><span class="mshare-bucket-dot dot-total"></span>Total Market Share</div>
+            <div class="mshare-exp-pct pct-total">${fmt(pTotal)}</div>
+            <div class="mshare-exp-track"><div class="mshare-exp-fill mshare-fill-total" data-w="${barW(pTotal)}"></div></div>
+            <div class="mshare-exp-context">ING €${ing.inv}bn vs €${mInv ? Math.round(mInv).toLocaleString('en-US') : '—'}bn market<br>All household investments · ${c.market.inv.p}</div>
+          </div>
         </div>
-      </div>
-      <div class="mshare-ing-vals">
-        <div class="mshare-ing-val-item">
-          <span class="mshare-ing-abs">€${ing.aum}bn</span>ING AUM
+      </div>`;
+
+    // ── Collapsed card (other cards when one is active) ──
+    const collapsedContent = `
+      <div class="mshare-collapsed-content">
+        <div class="mshare-coll-flag">${flag(c.code, 'md')}</div>
+        <div class="mshare-coll-code">${c.code}</div>
+        <div class="mshare-coll-total">${fmt(pTotal)}</div>
+        <div class="mshare-coll-subs">
+          <span class="mshare-coll-aum">${fmt(pAum)}</span>
+          <span style="color:var(--t4)">·</span>
+          <span class="mshare-coll-auc">${fmt(pAuc)}</span>
         </div>
-        <div class="mshare-ing-val-item">
-          <span class="mshare-ing-abs">€${ing.auc}bn</span>ING AUC
-        </div>
-        <div class="mshare-ing-val-item">
-          <span class="mshare-ing-abs">€${ing.inv}bn</span>ING Total
-        </div>
-      </div>
+        <div class="mshare-coll-hint">click to expand</div>
+      </div>`;
+
+    return `<div class="mshare-card" data-code="${c.code}" onclick="handleMShareClick('${c.code}')">
+      ${normalContent}${expandedContent}${collapsedContent}
     </div>`;
   }).join('');
 
@@ -1454,35 +1582,47 @@ function renderMarketShare() {
         <div class="section-eyebrow">ING vs Market</div>
         <div class="section-title">Market Penetration</div>
       </div>
-      <div class="section-desc" style="text-align:right;max-width:460px">ING internal FY2025 vs central bank household investment balances · Bars scaled to 15% max · 🟠 AUM share &nbsp;🔵 AUC share &nbsp;🟢 Total share</div>
+      <div class="section-desc" style="text-align:right;max-width:460px">Click any country card to expand · 🟠 AUM share &nbsp;🔵 AUC share &nbsp;🟢 Total share · Bars scaled to 15% max</div>
     </div>
-    <div class="mshare-grid">${cards}</div>
+    <div class="mshare-grid" id="mshare-grid">${cards}</div>
     ${summary}
   `;
 
-  // Animate bars after paint
+  // Animate bars on load, then sync active card to current state
   requestAnimationFrame(() => {
     setTimeout(() => {
-      el.querySelectorAll('.mshare-fill[data-w]').forEach(bar => {
-        bar.style.width = bar.dataset.w;
-      });
-      el.querySelectorAll('[data-target][data-suffix]').forEach(el2 => {
-        const target = parseFloat(el2.dataset.target);
-        const dec    = parseInt(el2.dataset.dec ?? 1);
-        const suffix = el2.dataset.suffix ?? '';
-        if (target === 0) return;
-        let start = null;
-        const dur = 1100;
-        const step = (ts) => {
-          if (!start) start = ts;
-          const prog = Math.min((ts - start) / dur, 1);
-          const eased = 1 - Math.pow(1 - prog, 3);
-          el2.textContent = (target * eased).toFixed(dec) + suffix;
-          if (prog < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
+      el.querySelectorAll('.mshare-fill[data-w], .mshare-exp-fill[data-w]').forEach(b => {
+        b.style.width = b.dataset.w;
       });
     }, 200);
+  });
+
+  // Sync with currently active country
+  updateMShareActive(state.activeCode);
+}
+
+// Toggle which market-share card is expanded, no re-render needed
+function updateMShareActive(code) {
+  const grid = document.getElementById('mshare-grid');
+  if (!grid) return;
+  const cards = grid.querySelectorAll('.mshare-card');
+  const hasActive = !!code;
+  grid.classList.toggle('has-active', hasActive);
+  cards.forEach(card => {
+    const isActive = card.dataset.code === code;
+    card.classList.toggle('mshare-active',    isActive);
+    card.classList.toggle('mshare-collapsed', hasActive && !isActive);
+    // Trigger bar animation on the newly active expanded card
+    if (isActive) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          card.querySelectorAll('.mshare-exp-fill[data-w]').forEach(b => {
+            b.style.width = '0%';
+            requestAnimationFrame(() => { b.style.width = b.dataset.w; });
+          });
+        }, 50);
+      });
+    }
   });
 }
 
@@ -1887,6 +2027,7 @@ function handleTabClick(code) {
   renderTabs();
   updateActiveCard(code);
   renderDeepDive(code);
+  updateMShareActive(code);
 }
 
 // ══════════════════════════════════════════
@@ -2075,6 +2216,20 @@ function handleCardClick(code) {
   renderTabs();
   updateActiveCard(code);
   renderDeepDive(code);
+  updateMShareActive(code);
+}
+
+function handleMShareClick(code) {
+  // If clicking the already-active card, collapse back to grid
+  const newCode = state.activeCode === code ? null : code;
+  if (newCode) {
+    state.activeCode = newCode;
+    state.view = 'country';
+    updateActiveCard(newCode);
+    renderDeepDive(newCode);
+    renderTabs();
+  }
+  updateMShareActive(newCode ?? state.activeCode);
 }
 
 function handleSort(key) {
