@@ -1,0 +1,328 @@
+{
+  "generated": "2026-04-13",
+  "target_period": "FY2025 (most recent available: FY2024 / Q4 2024)",
+  "methodology_note": "Market AUM = EFAMA total net assets UCITS+AIFs domiciled in country (Q4 2024). AUC = No official pan-European aggregate available; noted per competitor where disclosed. Investment Balances = AUM where AUC unavailable. Population 18+ estimated at ~83-85% of total based on Eurostat age structure.",
+  "countries": {
+    "DE": {
+      "name": "Germany",
+      "flag": "🇩🇪",
+      "market": {
+        "aum": { "value": 2808.3, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Quarterly Statistical Release N°100, Q4 2024", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf", "note": "UCITS: €549.1bn + AIFs: €2,259.2bn, domicile-based" },
+        "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+        "investment_balances": { "value": 2808.3, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Q4 2024 (AUM only; AUC not separately available)", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf" },
+        "population_total": { "value": 84.4, "unit": "millions", "period": "2024", "source": "Eurostat / Worldometer 2024 estimate", "sourceUrl": "https://www.worldometers.info/population/countries-in-europe-by-population/" },
+        "population_18plus": { "value": 70.8, "unit": "millions", "period": "2024", "source": "Estimated: ~84% of total population (Eurostat age structure)", "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en" }
+      },
+      "competitors": [
+        {
+          "name": "DWS Group (Deutsche Bank)",
+          "type": "Asset Manager",
+          "aum": { "value": 1012, "unit": "€bn", "period": "Q4 2024", "source": "DWS Facts & Figures", "sourceUrl": "https://www.dws.com/our-profile/facts-and-figures/" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 1012, "unit": "€bn", "period": "Q4 2024", "source": "DWS Facts & Figures", "sourceUrl": "https://www.dws.com/our-profile/facts-and-figures/" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available (DWS profit before taxes ~€1,300m est.)", "sourceUrl": null }
+        },
+        {
+          "name": "Union Investment (DZ Bank)",
+          "type": "Asset Manager / Cooperative Bank",
+          "aum": { "value": 504.7, "unit": "€bn", "period": "FY2024", "source": "DZ Bank Group preliminary results 2024", "sourceUrl": "https://www.dzbank.com/content/dzbank/en/home/we-are-dz-bank/press/news_archive/2025/preliminary-results-for-2024--dz-bank-group-reports-a-profit-bef.html" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 504.7, "unit": "€bn", "period": "FY2024", "source": "DZ Bank Group preliminary results 2024", "sourceUrl": "https://www.dzbank.com/content/dzbank/en/home/we-are-dz-bank/press/news_archive/2025/preliminary-results-for-2024--dz-bank-group-reports-a-profit-bef.html" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": 1200, "unit": "€m", "period": "FY2024", "source": "DZ Bank Group results (Union Investment profit before taxes)", "sourceUrl": "https://www.dzbank.com/content/dzbank/en/home/we-are-dz-bank/press/news_archive/2025/preliminary-results-for-2024--dz-bank-group-reports-a-profit-bef.html" }
+        },
+        {
+          "name": "DekaBank (Sparkassen)",
+          "type": "Savings Bank Network AM",
+          "aum": { "value": 416, "unit": "€bn", "period": "FY2024", "source": "Sparkassen-Finanzgruppe Financial Report 2024", "sourceUrl": "https://www.sparkassenstiftung.de/fileadmin/160923_Sparkassenstiftungen_HTML/downloads/Infopaper_Imagebrosch%C3%BCre/Publikationen_Sparkassen-Finanzgruppe/Financial_Report_2024.pdf" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 416, "unit": "€bn", "period": "FY2024", "source": "Sparkassen-Finanzgruppe Financial Report 2024", "sourceUrl": "https://www.sparkassenstiftung.de/fileadmin/160923_Sparkassenstiftungen_HTML/downloads/Infopaper_Imagebrosch%C3%BCre/Publikationen_Sparkassen-Finanzgruppe/Financial_Report_2024.pdf" },
+          "investing_clients": { "value": 5.7, "unit": "millions", "period": "FY2024", "source": "Sparkassen-Finanzgruppe Financial Report 2024 (accounts under management)", "sourceUrl": "https://www.sparkassenstiftung.de/fileadmin/160923_Sparkassenstiftungen_HTML/downloads/Infopaper_Imagebrosch%C3%BCre/Publikationen_Sparkassen-Finanzgruppe/Financial_Report_2024.pdf" },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "Commerzbank (incl. Comdirect)",
+          "type": "Universal Bank",
+          "aum": { "value": 400, "unit": "€bn", "period": "FY2024", "source": "Commerzbank FY2024 press release ('>€400bn AUM')", "sourceUrl": "https://www.commerzbank.de/group/newsroom/press-releases/2025/20250213-pr-financial-results-2024.pdf" },
+          "auc": { "value": 243, "unit": "€bn", "period": "Q4 2024", "source": "Commerzbank FY2024 press release (securities volume)", "sourceUrl": "https://www.commerzbank.de/group/newsroom/press-releases/2025/20250213-pr-financial-results-2024.pdf" },
+          "investment_balances": { "value": 643, "unit": "€bn", "period": "Q4 2024", "source": "Commerzbank FY2024 (AUM >€400bn + securities volume €243bn)", "sourceUrl": "https://www.commerzbank.de/group/newsroom/press-releases/2025/20250213-pr-financial-results-2024.pdf" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": 3640, "unit": "€m", "period": "FY2024", "source": "Commerzbank FY2024 press release (net commission income)", "sourceUrl": "https://www.commerzbank.de/group/newsroom/press-releases/2025/20250213-pr-financial-results-2024.pdf" }
+        }
+      ]
+    },
+    "BE": {
+      "name": "Belgium",
+      "flag": "🇧🇪",
+      "market": {
+        "aum": { "value": 230.5, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Quarterly Statistical Release N°100, Q4 2024", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf", "note": "UCITS: €229.1bn + AIFs: €1.4bn, domicile-based" },
+        "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+        "investment_balances": { "value": 230.5, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Q4 2024 (AUM only; AUC not separately available)", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf" },
+        "population_total": { "value": 11.4, "unit": "millions", "period": "2024", "source": "Eurostat / Worldometer 2024 estimate", "sourceUrl": "https://www.worldometers.info/population/countries-in-europe-by-population/" },
+        "population_18plus": { "value": 9.7, "unit": "millions", "period": "2024", "source": "Estimated: ~85% of total population (Eurostat age structure)", "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en" }
+      },
+      "competitors": [
+        {
+          "name": "KBC Group",
+          "type": "Universal Bank / Insurer",
+          "aum": { "value": 276, "unit": "€bn", "period": "Q4 2024", "source": "KBC Group Q4 2024 Quarterly Report", "sourceUrl": "https://wcmassets.kbc.be/content/dam/kbccom/doc/investor-relations/Results/4q2024/4q2024-quarterly-report--en.pdf.cdn.res/last-modified/1739443462911/4q2024-quarterly-report--en.pdf" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 276, "unit": "€bn", "period": "Q4 2024", "source": "KBC Group Q4 2024 (group-wide incl. Czech & International)", "sourceUrl": "https://wcmassets.kbc.be/content/dam/kbccom/doc/investor-relations/Results/4q2024/4q2024-quarterly-report--en.pdf.cdn.res/last-modified/1739443462911/4q2024-quarterly-report--en.pdf" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available (net fee income +17% YoY)", "sourceUrl": null }
+        },
+        {
+          "name": "Belfius",
+          "type": "Universal Bank / Insurer",
+          "aum": { "value": 54.6, "unit": "€bn", "period": "FY2024", "source": "Belfius FY2024 press release (discretionary asset management)", "sourceUrl": "https://www.belfius.be/about-us/dam/corporate/press-room/press-articles/downloads/en/2025/Press%20release%20results%20for%202024.pdf" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 61.4, "unit": "€bn", "period": "FY2024", "source": "Belfius FY2024 press release (Private & Wealth total savings and investments)", "sourceUrl": "https://www.belfius.be/about-us/dam/corporate/press-room/press-articles/downloads/en/2025/Press%20release%20results%20for%202024.pdf" },
+          "investing_clients": { "value": 0.172, "unit": "millions", "period": "FY2024", "source": "Belfius FY2024 press release (~172,000 asset management clients)", "sourceUrl": "https://www.belfius.be/about-us/dam/corporate/press-room/press-articles/downloads/en/2025/Press%20release%20results%20for%202024.pdf" },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "BNP Paribas Fortis",
+          "type": "Universal Bank",
+          "aum": { "value": null, "unit": "€bn", "period": null, "source": "No official investment AUM publicly disclosed for Belgian operations separately", "sourceUrl": "https://www.bnpparibasfortis.com" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": null, "unit": "€bn", "period": null, "source": "No official data available (total bank assets €266.9bn, not AUM)", "sourceUrl": "https://www.bnpparibasfortis.com" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "Argenta",
+          "type": "Savings / Insurance Bank",
+          "aum": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        }
+      ]
+    },
+    "ES": {
+      "name": "Spain",
+      "flag": "🇪🇸",
+      "market": {
+        "aum": { "value": 417.5, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Quarterly Statistical Release N°100, Q4 2024", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf", "note": "UCITS: €381.2bn + AIFs: €36.3bn, domicile-based" },
+        "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+        "investment_balances": { "value": 417.5, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Q4 2024 (AUM only; AUC not separately available)", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf" },
+        "population_total": { "value": 48.1, "unit": "millions", "period": "2024", "source": "Eurostat / Worldometer 2024 estimate", "sourceUrl": "https://www.worldometers.info/population/countries-in-europe-by-population/" },
+        "population_18plus": { "value": 39.5, "unit": "millions", "period": "2024", "source": "Estimated: ~82% of total population (Eurostat age structure)", "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en" }
+      },
+      "competitors": [
+        {
+          "name": "CaixaBank",
+          "type": "Universal Bank",
+          "aum": { "value": 189.22, "unit": "€bn", "period": "Q4 2024", "source": "CaixaBank news release — Wealth Management AUM year-end 2024", "sourceUrl": "https://www.caixabank.com/en/shareholders-investors/economic-financial-information/full-year-results-presentation-2024.html" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 189.22, "unit": "€bn", "period": "Q4 2024", "source": "CaixaBank Wealth Management", "sourceUrl": "https://www.caixabank.com/en/shareholders-investors/economic-financial-information/full-year-results-presentation-2024.html" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "Banco Santander Spain",
+          "type": "Universal Bank",
+          "aum": { "value": 105, "unit": "€bn", "period": "FY2024", "source": "Santander Asset Management Spain (key figures page)", "sourceUrl": "https://www.santanderassetmanagement.com/about-us/key-figures" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 105, "unit": "€bn", "period": "FY2024", "source": "Santander Asset Management Spain", "sourceUrl": "https://www.santanderassetmanagement.com/about-us/key-figures" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "Bankinter",
+          "type": "Universal Bank",
+          "aum": { "value": 57.7, "unit": "€bn", "period": "FY2024", "source": "Bankinter FY2024 press release (off-balance sheet managed funds)", "sourceUrl": "https://www.bankinter.com/webcorporativa/en/communication-room/news/institutional/bankinter-closes-2024-with-record-profit-of-953-million-euros--up-13--on-2023--thanks-to-increased-commercial-activity-and-diversification-of-the-business" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 57.7, "unit": "€bn", "period": "FY2024", "source": "Bankinter FY2024 (own+3rd party funds+pensions+managed portfolios)", "sourceUrl": "https://www.bankinter.com/webcorporativa/en/communication-room/news/institutional/bankinter-closes-2024-with-record-profit-of-953-million-euros--up-13--on-2023--thanks-to-increased-commercial-activity-and-diversification-of-the-business" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "BBVA Spain",
+          "type": "Universal Bank",
+          "aum": { "value": null, "unit": "€bn", "period": null, "source": "No official Spain-specific AUM figure publicly disclosed (customer funds grew +5% YoY)", "sourceUrl": "https://shareholdersandinvestors.bbva.com/informes/4q24-report-group-results/" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available (Spain net profit €3,784m, +39%)", "sourceUrl": null }
+        },
+        {
+          "name": "Banco Sabadell",
+          "type": "Universal Bank",
+          "aum": { "value": 23.8, "unit": "€bn", "period": "FY2024", "source": "Sabadell press release (Amundi partnership €21.97bn + Sabadell Portfolios €1.84bn)", "sourceUrl": "https://comunicacion.grupbancsabadell.com/en/press-room/banco-sabadell-and-amundi-mark-five-years-of-their-strategic-partnership-with-a-53-increase-in-assets-under-management/" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 23.8, "unit": "€bn", "period": "FY2024", "source": "Banco Sabadell (Amundi partnership + discretionary AUM)", "sourceUrl": "https://comunicacion.grupbancsabadell.com/en/press-room/banco-sabadell-and-amundi-mark-five-years-of-their-strategic-partnership-with-a-53-increase-in-assets-under-management/" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        }
+      ]
+    },
+    "IT": {
+      "name": "Italy",
+      "flag": "🇮🇹",
+      "market": {
+        "aum": { "value": 443.4, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Quarterly Statistical Release N°100, Q4 2024", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf", "note": "UCITS: €309.7bn + AIFs: €133.7bn, domicile-based" },
+        "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+        "investment_balances": { "value": 443.4, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Q4 2024 (AUM only; AUC not separately available)", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf" },
+        "population_total": { "value": 59.0, "unit": "millions", "period": "2024", "source": "Eurostat / Worldometer 2024 estimate", "sourceUrl": "https://www.worldometers.info/population/countries-in-europe-by-population/" },
+        "population_18plus": { "value": 49.2, "unit": "millions", "period": "2024", "source": "Estimated: ~83% of total population (Eurostat age structure)", "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en" }
+      },
+      "competitors": [
+        {
+          "name": "Intesa Sanpaolo",
+          "type": "Universal Bank / Wealth Manager",
+          "aum": { "value": 177.3, "unit": "€bn", "period": "FY2024", "source": "Intesa Sanpaolo FY2024 press release (insurance subsidiaries AUM)", "sourceUrl": "https://group.intesasanpaolo.com/en/investor-relations/press-releases/2025/02/20250204-ris-fy24-uk" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 1400, "unit": "€bn", "period": "FY2024", "source": "Intesa Sanpaolo FY2024 (total customer financial assets incl. deposits)", "sourceUrl": "https://group.intesasanpaolo.com/en/investor-relations/press-releases/2025/02/20250204-ris-fy24-uk" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available (net income €8.7bn record)", "sourceUrl": null }
+        },
+        {
+          "name": "Banca Mediolanum",
+          "type": "Financial Advisor Network",
+          "aum": { "value": 150.4, "unit": "€bn", "period": "FY2024", "source": "Banca Mediolanum FY2024 results (AUM/AUA)", "sourceUrl": "https://www.bancamediolanum.it/static-assets/documenti/file/it/2025/02/06/Presentazione_FY2024.pdf" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 150.4, "unit": "€bn", "period": "FY2024", "source": "Banca Mediolanum FY2024 (total financial assets under management and administration)", "sourceUrl": "https://www.bancamediolanum.it/static-assets/documenti/file/it/2025/02/06/Presentazione_FY2024.pdf" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": 1310, "unit": "€m", "period": "FY2024", "source": "Banca Mediolanum FY2024 (net commission income)", "sourceUrl": "https://www.bancamediolanum.it/static-assets/documenti/file/it/2025/02/06/Presentazione_FY2024.pdf" }
+        },
+        {
+          "name": "Fineco Bank",
+          "type": "Digital Bank / Brokerage",
+          "aum": { "value": 66.4, "unit": "€bn", "period": "FY2024", "source": "FinecoBank FY2024 press release (AUM — managed assets)", "sourceUrl": "https://images.fineco.it/pub/pdf/chi-siamo/comunicati-ipo/2025-02-06-PR_FY24_Results.pdf" },
+          "auc": { "value": 74.4, "unit": "€bn", "period": "FY2024", "source": "FinecoBank FY2024 (TFA €140.8bn - AUM €66.4bn = AUC/administered €74.4bn estimate)", "sourceUrl": "https://images.fineco.it/pub/pdf/chi-siamo/comunicati-ipo/2025-02-06-PR_FY24_Results.pdf" },
+          "investment_balances": { "value": 140.8, "unit": "€bn", "period": "FY2024", "source": "FinecoBank FY2024 press release (Total Financial Assets)", "sourceUrl": "https://images.fineco.it/pub/pdf/chi-siamo/comunicati-ipo/2025-02-06-PR_FY24_Results.pdf" },
+          "investing_clients": { "value": 1.656, "unit": "millions", "period": "FY2024", "source": "FinecoBank FY2024 press release (1,655,649 total customers)", "sourceUrl": "https://images.fineco.it/pub/pdf/chi-siamo/comunicati-ipo/2025-02-06-PR_FY24_Results.pdf" },
+          "investment_revenue": { "value": 369.5, "unit": "€m", "period": "FY2024", "source": "FinecoBank FY2024 (net commissions — Investing area)", "sourceUrl": "https://images.fineco.it/pub/pdf/chi-siamo/comunicati-ipo/2025-02-06-PR_FY24_Results.pdf" }
+        },
+        {
+          "name": "Azimut Holding",
+          "type": "Asset Manager / FA Network",
+          "aum": { "value": 70.3, "unit": "€bn", "period": "FY2024", "source": "Azimut FY2024 press release (AUM)", "sourceUrl": "https://www.azimutinvestments.com/documents/45685/922174/Press_release_FY_2024_vF.pdf/474216c1-9b57-8d7e-5c9d-09f016e587bc" },
+          "auc": { "value": 37.2, "unit": "€bn", "period": "FY2024", "source": "Azimut FY2024 press release (Assets under Administration)", "sourceUrl": "https://www.azimutinvestments.com/documents/45685/922174/Press_release_FY_2024_vF.pdf/474216c1-9b57-8d7e-5c9d-09f016e587bc" },
+          "investment_balances": { "value": 107.5, "unit": "€bn", "period": "FY2024", "source": "Azimut FY2024 press release (Total Assets)", "sourceUrl": "https://www.azimutinvestments.com/documents/45685/922174/Press_release_FY_2024_vF.pdf/474216c1-9b57-8d7e-5c9d-09f016e587bc" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available (adjusted net profit €588m FY2024)", "sourceUrl": null }
+        },
+        {
+          "name": "UniCredit",
+          "type": "Universal Bank",
+          "aum": { "value": 100, "unit": "€bn", "period": "FY2024", "source": "Amundi CEO quote: UniCredit networks ~€100bn AUM via Amundi partnership", "sourceUrl": "https://uk.finance.yahoo.com/news/amundi-ceo-says-unicredit-accounts-182422489.html" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": null, "unit": "€bn", "period": null, "source": "No official total investment balances publicly disclosed", "sourceUrl": null },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": 8100, "unit": "€m", "period": "FY2024", "source": "UniCredit FY2024 (total net fees €8.1bn group-wide)", "sourceUrl": "https://www.unicreditgroup.eu/en/press-media/press-releases-price-sensitive/2025/february/unicredit--4q24-and-fy24-group-results-.html" }
+        }
+      ]
+    },
+    "NL": {
+      "name": "Netherlands",
+      "flag": "🇳🇱",
+      "market": {
+        "aum": { "value": 902.1, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Quarterly Statistical Release N°100, Q4 2024", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf", "note": "UCITS: €98.3bn + AIFs: €803.8bn (mainly institutional pension-like AIFs), domicile-based" },
+        "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+        "investment_balances": { "value": 902.1, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Q4 2024 (note: €804bn is institutional AIFs; retail AUM is €98bn UCITS)", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf" },
+        "population_total": { "value": 17.2, "unit": "millions", "period": "2024", "source": "Eurostat / Worldometer 2024 estimate", "sourceUrl": "https://www.worldometers.info/population/countries-in-europe-by-population/" },
+        "population_18plus": { "value": 14.6, "unit": "millions", "period": "2024", "source": "Estimated: ~85% of total population (Eurostat age structure)", "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en" }
+      },
+      "competitors": [
+        {
+          "name": "ABN AMRO",
+          "type": "Universal Bank / Private Bank",
+          "aum": { "value": 239, "unit": "€bn", "period": "FY2024", "source": "ABN AMRO Integrated Annual Report 2024 (total investments overseen, wealth management)", "sourceUrl": "https://www.abnamro.com/en/news/abn-amro-publishes-its-integrated-annual-report-2024" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 239, "unit": "€bn", "period": "FY2024", "source": "ABN AMRO Annual Report 2024", "sourceUrl": "https://www.abnamro.com/en/news/abn-amro-publishes-its-integrated-annual-report-2024" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available (net profit €2.4bn, ROE >10%)", "sourceUrl": null }
+        },
+        {
+          "name": "Van Lanschot Kempen",
+          "type": "Wealth Manager / Asset Manager",
+          "aum": { "value": 149.3, "unit": "€bn", "period": "FY2024", "source": "Van Lanschot Kempen 2024 annual results press release", "sourceUrl": "https://newsroom.vanlanschotkempen.com/en/van-lanschot-kempen-publishes-2024-annual-results" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 149.3, "unit": "€bn", "period": "FY2024", "source": "Van Lanschot Kempen 2024 annual results (AUM)", "sourceUrl": "https://newsroom.vanlanschotkempen.com/en/van-lanschot-kempen-publishes-2024-annual-results" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": 141.9, "unit": "€m", "period": "FY2024", "source": "Van Lanschot Kempen 2024 (net profit — proxy for investment revenue)", "sourceUrl": "https://newsroom.vanlanschotkempen.com/en/van-lanschot-kempen-publishes-2024-annual-results" }
+        },
+        {
+          "name": "flatexDEGIRO (DEGIRO)",
+          "type": "Online Broker",
+          "aum": { "value": null, "unit": "€bn", "period": null, "source": "No official AUM (pure brokerage model)", "sourceUrl": null },
+          "auc": { "value": 71.5, "unit": "€bn", "period": "FY2024", "source": "flatexDEGIRO Preliminary Results 2024 (customer assets under custody)", "sourceUrl": "https://flatexdegiro.com/media/pages/investor-relations/reports-financial-calendar/1e7b76d00e-1740466733/250225-flatexdegiro_financial-release_preliminary-results-2024.pdf" },
+          "investment_balances": { "value": 71.5, "unit": "€bn", "period": "FY2024", "source": "flatexDEGIRO Preliminary Results 2024 (AUC)", "sourceUrl": "https://flatexdegiro.com/media/pages/investor-relations/reports-financial-calendar/1e7b76d00e-1740466733/250225-flatexdegiro_financial-release_preliminary-results-2024.pdf" },
+          "investing_clients": { "value": 3.1, "unit": "millions", "period": "FY2024", "source": "flatexDEGIRO Preliminary Results 2024", "sourceUrl": "https://flatexdegiro.com/media/pages/investor-relations/reports-financial-calendar/1e7b76d00e-1740466733/250225-flatexdegiro_financial-release_preliminary-results-2024.pdf" },
+          "investment_revenue": { "value": 480, "unit": "€m", "period": "FY2024", "source": "flatexDEGIRO Preliminary Results 2024 (total revenue)", "sourceUrl": "https://flatexdegiro.com/media/pages/investor-relations/reports-financial-calendar/1e7b76d00e-1740466733/250225-flatexdegiro_financial-release_preliminary-results-2024.pdf" }
+        },
+        {
+          "name": "Rabobank",
+          "type": "Cooperative Bank",
+          "aum": { "value": null, "unit": "€bn", "period": null, "source": "No official investment AUM publicly disclosed", "sourceUrl": "https://www.rabobank.com/about-us/organization/results-and-reports" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available (net profit €5.2bn, ROE 10.0%)", "sourceUrl": null }
+        }
+      ]
+    },
+    "PL": {
+      "name": "Poland",
+      "flag": "🇵🇱",
+      "market": {
+        "aum": { "value": 88.7, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Quarterly Statistical Release N°100, Q4 2024", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf", "note": "UCITS: €36.8bn + AIFs: €51.9bn, domicile-based. Alternative source: ~€95bn incl. cross-border managed assets." },
+        "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+        "investment_balances": { "value": 88.7, "unit": "€bn", "period": "Q4 2024", "source": "EFAMA Q4 2024 (AUM only; AUC not separately available)", "sourceUrl": "https://www.efama.org/sites/default/files/files/quarterly-statistical-release-q4-2024.pdf" },
+        "population_total": { "value": 36.8, "unit": "millions", "period": "2024", "source": "Eurostat / Worldometer 2024 estimate", "sourceUrl": "https://www.worldometers.info/population/countries-in-europe-by-population/" },
+        "population_18plus": { "value": 30.5, "unit": "millions", "period": "2024", "source": "Estimated: ~83% of total population (Eurostat age structure)", "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/tps00001/default/table?lang=en" }
+      },
+      "competitors": [
+        {
+          "name": "PKO Bank Polski (PKO TFI)",
+          "type": "Universal Bank / Fund Manager",
+          "aum": { "value": 19, "unit": "€bn", "period": "FY2024", "source": "PKO Bank Polski 2024 results — estimated 21.4% market share of ~€88.7bn market", "sourceUrl": "https://www.pkobp.pl/en/media/news/ahead-of-the-market-the-pko-bank-polski-group-presents-its-results-for-2024" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 19, "unit": "€bn", "period": "FY2024", "source": "Estimated (21.4% × €88.7bn market)", "sourceUrl": "https://www.pkobp.pl/en/media/news/ahead-of-the-market-the-pko-bank-polski-group-presents-its-results-for-2024" },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "Bank Pekao (Pekao TFI)",
+          "type": "Universal Bank / Fund Manager",
+          "aum": { "value": 7.5, "unit": "€bn", "period": "December 2024", "source": "Pekao TFI website (PLN 32.2bn ÷ 4.27 EUR/PLN)", "sourceUrl": "https://pekaotfi.pl" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": 7.5, "unit": "€bn", "period": "December 2024", "source": "Pekao TFI (PLN 32.2bn; +32.9% YoY)", "sourceUrl": "https://pekaotfi.pl" },
+          "investing_clients": { "value": 0.5, "unit": "millions", "period": "2024", "source": "Pekao TFI (~500,000 individual and institutional clients)", "sourceUrl": "https://pekaotfi.pl" },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "mBank",
+          "type": "Digital Universal Bank",
+          "aum": { "value": null, "unit": "€bn", "period": null, "source": "No official investment AUM publicly disclosed", "sourceUrl": "https://www.mbank.pl/en/investor-relations" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "Santander Bank Polska",
+          "type": "Universal Bank",
+          "aum": { "value": null, "unit": "€bn", "period": null, "source": "Poland segment not separately disclosed in Santander Group reports", "sourceUrl": "https://www.santander.com/en/shareholders-and-investors" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        },
+        {
+          "name": "BNP Paribas Polska",
+          "type": "Universal Bank",
+          "aum": { "value": null, "unit": "€bn", "period": null, "source": "Poland segment not separately disclosed in BNP Paribas Group reports", "sourceUrl": "https://group.bnpparibas" },
+          "auc": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_balances": { "value": null, "unit": "€bn", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investing_clients": { "value": null, "unit": "millions", "period": null, "source": "No official data available", "sourceUrl": null },
+          "investment_revenue": { "value": null, "unit": "€m", "period": null, "source": "No official data available", "sourceUrl": null }
+        }
+      ]
+    }
+  }
+}
