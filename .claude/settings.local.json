@@ -64,7 +64,15 @@
       "WebFetch(domain:www.elcorreogallego.es)",
       "WebFetch(domain:www.istat.it)",
       "WebFetch(domain:thecorner.eu)",
-      "WebFetch(domain:www.consob.it)"
+      "WebFetch(domain:www.consob.it)",
+      "Read(//c/Windows/**)",
+      "Bash(ls /c/Python*/python.exe)",
+      "Read(//c/Users/SARP/AppData/Local/Programs/**)",
+      "Bash(cmd.exe /c \"where python 2>nul\")",
+      "Bash(powershell *)",
+      "Bash(curl -s -L \"https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js\" -o /tmp/xlsx.full.min.js)",
+      "Read(//tmp/**)",
+      "Bash(/c/Users/SARP/AppData/Local/Microsoft/WindowsApps/python patch_v2.py)"
     ]
   }
 }

@@ -1257,7 +1257,7 @@ const state = {
   sortKey: 'aum',
   sortDir: 'desc',
   barsAnimated: {},
-  view: 'country'
+  view: 'methodology'
 };
 
 // ══════════════════════════════════════════
@@ -2260,11 +2260,10 @@ function toggleAcc(code) {
 //  INIT
 // ══════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
-  renderTabs();
   renderMarketCards();
   renderMarketShare();
-  renderDeepDive(state.activeCode);
   renderSources();
+  handleMethodologyTab();
 });
 </script>
 </body>
