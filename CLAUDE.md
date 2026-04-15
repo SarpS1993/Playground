@@ -6,7 +6,7 @@ Single-file HTML dashboard (`output/ing_investment_landscape.html`) benchmarking
 ## Key Files
 | Path | Purpose |
 |------|---------|
-| `output/ing_investment_landscape.html` | Main deliverable — single self-contained HTML dashboard |
+| `output/dashboard.html` | Main deliverable — single self-contained HTML dashboard |
 | `data/research_notes.md` | Research log with source citations and data decisions |
 | `data/research_data.json` | Compiled structured data (pre-HTML) |
 | `data/abnamro_q4_2025.pdf` | ABN AMRO Q4 2025 Quarterly Report (downloaded) |
