@@ -1284,6 +1284,31 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 @media(max-width:640px){
   .lp-measure-section{padding:44px 20px}
 }
+
+/* ─── INDEPENDENCE DISCLAIMER ─── */
+.disclaimer-wrap{
+  max-width:1580px;margin:0 auto;padding:32px 56px 48px;
+}
+.disclaimer-card{
+  background:linear-gradient(145deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);border-radius:var(--r12);
+  padding:20px 24px;position:relative;overflow:hidden;
+}
+.disclaimer-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--orange),#FF9500);
+  opacity:0.45;
+}
+.disclaimer-label{
+  font-family:var(--fm);font-size:9px;color:var(--t4);
+  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;
+}
+.disclaimer-text{
+  font-family:var(--fb);font-size:13px;color:var(--t2);line-height:1.65;
+}
+@media(max-width:768px){
+  .disclaimer-wrap{padding:24px 22px 36px}
+}
 </style>
 </head>
 <body>
@@ -1486,6 +1511,15 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 </footer>
 
 </div><!-- /#dashboard -->
+
+<!-- INDEPENDENCE DISCLAIMER -->
+<div class="disclaimer-wrap">
+  <div class="disclaimer-card">
+    <div class="disclaimer-label">Independence Notice</div>
+    <p class="disclaimer-text">This project is developed and maintained independently. It does not use, reference, or incorporate any ING resources, systems, internal data, or intellectual property.</p>
+  </div>
+</div>
+<!-- END INDEPENDENCE DISCLAIMER -->
 <script>
 /* SheetJS CE (xlsx.js) — inlined for offline/email use */
 /*! xlsx.js (C) 2013-present SheetJS -- http://sheetjs.com */

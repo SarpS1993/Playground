@@ -1,7 +1,7 @@
 # ING Investments — European Investment Landscape
 
 ## Project Overview
-Single-file HTML dashboard (`output/ing_investment_landscape.html`) benchmarking ING's investment business across 6 European markets against local competitors. Built for senior management / board-level consumption.
+Single-file HTML dashboard (`output/dashboard.html`) benchmarking ING's investment business across 6 European markets against local competitors. Built for senior management / board-level consumption.
 
 ## Key Files
 | Path | Purpose |
