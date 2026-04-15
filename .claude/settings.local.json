@@ -72,7 +72,15 @@
       "Bash(powershell *)",
       "Bash(curl -s -L \"https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js\" -o /tmp/xlsx.full.min.js)",
       "Read(//tmp/**)",
-      "Bash(/c/Users/SARP/AppData/Local/Microsoft/WindowsApps/python patch_v2.py)"
+      "Bash(/c/Users/SARP/AppData/Local/Microsoft/WindowsApps/python patch_v2.py)",
+      "Bash(git remote *)",
+      "Bash(git fetch *)",
+      "Bash(git push *)",
+      "Bash(git branch *)",
+      "Bash(git mv *)",
+      "Bash(git rm *)",
+      "Bash(git commit *)",
+      "Bash(git add *)"
     ]
   }
 }
