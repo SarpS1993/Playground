@@ -1171,6 +1171,45 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
   .header-meta{display:none}
   .site-footer{padding:18px 22px}
 }
+
+/* ─── MOBILE ≤480px ─── */
+@media(max-width:480px){
+  /* Spacing */
+  .site-header{padding:0 14px}
+  .country-nav-inner{padding:0 14px}
+  .main{padding:0 14px 56px}
+  .site-footer{padding:14px 14px}
+  .section-head{margin:24px 0 14px;gap:12px;flex-wrap:wrap}
+  .section-title{font-size:19px}
+  .market-card{padding:16px}
+  .separator{margin:24px 0}
+
+  /* Tab nav — tighter pills */
+  .country-tab{padding:5px 9px;font-size:11.5px}
+
+  /* KPI tiles — 2-col grid */
+  .kpi-row{grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:24px}
+
+  /* Bar chart — narrower label col */
+  .bar-row{grid-template-columns:minmax(64px,90px) 1fr 48px;gap:8px}
+
+  /* Update log — stack date above content */
+  .update-log-entry{grid-template-columns:1fr;padding-left:20px}
+  .update-log-date{margin-bottom:4px;font-size:10px}
+
+  /* Sources table — narrower fixed cols */
+  .sp-type{width:110px;min-width:110px}
+  .sp-source{max-width:140px}
+
+  /* Caveats hero title */
+  .caveats-hero-title{font-size:22px}
+}
+
+/* ─── VERY SMALL ≤360px ─── */
+@media(max-width:360px){
+  .kpi-row{grid-template-columns:1fr}
+  .country-tab{padding:5px 7px;font-size:11px}
+}
 </style>
 <style>
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -2422,13 +2461,13 @@ function renderPribaPage() {
       </div>
     </div>
 
-    <div class="priba-disclaimer">
-      <div class="priba-disclaimer-label">
-        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Z" fill="#d4a853"/><path d="M7 7h2v5H7V7Zm0-3h2v2H7V4Z" fill="#d4a853"/></svg>
-        External Source — Not Independently Validated
+    <div class="nps-page-desc">
+      <div class="nps-page-desc-label">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="var(--cyan)" stroke-width="1.4"/><path d="M8 7v5" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="4.5" r="0.9" fill="var(--cyan)"/></svg>
+        About This Page
       </div>
-      <div class="priba-disclaimer-text">
-        This ranking is sourced directly from the Euromoney Private Banking Survey and has not been independently confirmed or validated through individual institution public reports. Figures represent Europe-advised AUM as self-reported by institutions to Euromoney. AUM definitions, scope boundaries, and reporting periods may differ between institutions. Expect variances relative to figures shown elsewhere in this dashboard.
+      <div class="nps-page-desc-text">
+        This page shows <strong>Europe's Top 30 Private Banks</strong> ranked by Europe-advised assets under management, sourced directly from the <strong>Euromoney Private Banking Survey (1H 2025)</strong>. Figures are self-reported by institutions to Euromoney and have not been independently confirmed against individual institution public reports. AUM definitions, scope boundaries, and reporting periods may differ between institutions — expect variances relative to figures shown elsewhere in this dashboard.
       </div>
     </div>
 
@@ -3202,16 +3241,69 @@ function renderDisclaimer() {
         </div>
       </div>
 
-      <div class="disclaimer-item">
-        <div class="disclaimer-item-num">3</div>
-        <div class="disclaimer-item-content">
-          <div class="disclaimer-item-label">Experimental Nature</div>
-          <div class="disclaimer-item-text">
-            This project is experimental and provided as-is. Data presented may contain inaccuracies, estimates, or outdated information. All figures should be independently verified against official sources before being used for any business decisions or strategic planning. Do not rely solely on this dashboard for critical decisions.
-          </div>
-        </div>
-      </div>
     </div>
+
+    <div class="nps-page-desc" style="margin-top:28px">
+      <div class="nps-page-desc-label">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="var(--cyan)" stroke-width="1.4"/><path d="M8 7v5" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="4.5" r="0.9" fill="var(--cyan)"/></svg>
+        Updating This Dashboard
+      </div>
+      <div class="nps-page-desc-text">
+        For reference, if you would like to update the dashboard in the future, the necessary lines to edit in <strong>dashboard.html</strong> are listed below.
+      </div>
+
+      <div style="margin-top:20px;font-family:var(--fb);font-size:11px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">1 — ING Figures &nbsp;·&nbsp; lines 1756–1761</div>
+      <table class="priba-table" style="margin-bottom:24px">
+        <thead><tr>
+          <th>Country</th>
+          <th style="text-align:center">Line</th>
+          <th>Fields</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>🇩🇪 Germany</td><td style="text-align:center">1756</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇧🇪 Belgium</td><td style="text-align:center">1757</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇪🇸 Spain</td><td style="text-align:center">1758</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇮🇹 Italy</td><td style="text-align:center">1759</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇳🇱 Netherlands</td><td style="text-align:center">1760</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇵🇱 Poland</td><td style="text-align:center">1761</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+        </tbody>
+      </table>
+
+      <div style="font-family:var(--fb);font-size:11px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">2 — NPS Data &nbsp;·&nbsp; lines 2172–2304</div>
+      <table class="priba-table" style="margin-bottom:24px">
+        <thead><tr>
+          <th>Country</th>
+          <th style="text-align:center">Lines</th>
+          <th>What to update</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>🇧🇪 Belgium</td><td style="text-align:center">2172–2196</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+          <tr><td>🇩🇪 Germany</td><td style="text-align:center">2197–2213</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list</td></tr>
+          <tr><td>🇮🇹 Italy</td><td style="text-align:center">2214–2239</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+          <tr><td>🇳🇱 Netherlands</td><td style="text-align:center">2240–2260</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+          <tr><td>🇵🇱 Poland</td><td style="text-align:center">2261–2279</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+          <tr><td>🇪🇸 Spain</td><td style="text-align:center">2280–2304</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+        </tbody>
+      </table>
+
+      <div style="font-family:var(--fb);font-size:11px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">3 — Competitor Market Data &nbsp;·&nbsp; lines 1942–2048</div>
+      <table class="priba-table">
+        <thead><tr>
+          <th>Country</th>
+          <th style="text-align:center">Lines</th>
+          <th>What to update</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>🇩🇪 Germany</td><td style="text-align:center">1943–1959</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇧🇪 Belgium</td><td style="text-align:center">1960–1976</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇪🇸 Spain</td><td style="text-align:center">1977–1994</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇮🇹 Italy</td><td style="text-align:center">1995–2012</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇳🇱 Netherlands</td><td style="text-align:center">2013–2029</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇵🇱 Poland</td><td style="text-align:center">2030–2048</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+        </tbody>
+      </table>
+    </div>
+
   `;
 }
 
