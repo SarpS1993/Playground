@@ -202,6 +202,62 @@ body::after{
 .country-tab.priba-tab:hover{background:rgba(212,168,83,0.07);border-color:rgba(212,168,83,0.22);color:#e8c97a}
 .country-tab.priba-tab.active{color:#fff;background:rgba(212,168,83,0.12);border-color:rgba(212,168,83,0.32);box-shadow:0 0 14px rgba(212,168,83,0.12)}
 .country-tab.priba-tab.active::after{background:#d4a853}
+.country-tab.disclaimer-tab{color:#ff4757;font-weight:600;letter-spacing:0.02em}
+.country-tab.disclaimer-tab:hover{background:rgba(255,71,87,0.12);border-color:rgba(255,71,87,0.32);color:#ff6b7a}
+.country-tab.disclaimer-tab.active{color:#fff;background:rgba(255,71,87,0.18);border-color:rgba(255,71,87,0.42);box-shadow:0 0 20px rgba(255,71,87,0.25),inset 0 0 16px rgba(255,71,87,0.08)}
+.country-tab.disclaimer-tab.active::after{background:#ff4757}
+
+/* ─── DISCLAIMER PAGE ─── */
+.disclaimer-page{margin-top:52px}
+.disclaimer-header{
+  padding:28px 32px;
+  background:linear-gradient(135deg,rgba(255,71,87,0.12) 0%,var(--bg2) 70%);
+  border:2px solid rgba(255,71,87,0.35);
+  border-left:4px solid #ff4757;
+  border-radius:var(--r16);
+  margin-bottom:32px;
+}
+.disclaimer-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:48px;height:48px;
+  background:rgba(255,71,87,0.18);
+  border:2px solid rgba(255,71,87,0.32);
+  border-radius:12px;
+  color:#ff4757;font-size:24px;margin-bottom:14px;
+}
+.disclaimer-title{
+  font-family:var(--fd);font-size:24px;font-weight:800;
+  color:#ff4757;letter-spacing:-0.3px;margin-bottom:12px;
+}
+.disclaimer-intro{
+  font-family:var(--fb);font-size:15px;color:var(--t2);
+  line-height:1.7;margin-bottom:20px;
+}
+.disclaimer-items{display:flex;flex-direction:column;gap:16px;margin-top:20px}
+.disclaimer-item{
+  display:flex;gap:16px;padding:18px;
+  background:var(--bg3);border:1px solid rgba(255,71,87,0.15);
+  border-radius:var(--r12);transition:all 200ms var(--ease);
+}
+.disclaimer-item:hover{
+  background:rgba(255,71,87,0.04);
+  border-color:rgba(255,71,87,0.25);
+}
+.disclaimer-item-num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;flex-shrink:0;
+  background:#ff4757;color:#fff;border-radius:50%;
+  font-family:var(--fm);font-size:13px;font-weight:700;
+}
+.disclaimer-item-content{display:flex;flex-direction:column;gap:6px;flex:1}
+.disclaimer-item-label{
+  font-family:var(--fb);font-size:14px;font-weight:600;
+  color:var(--t1);letter-spacing:0.01em;
+}
+.disclaimer-item-text{
+  font-family:var(--fb);font-size:13.5px;color:var(--t3);
+  line-height:1.6;
+}
 
 /* ─── EXPORT BUTTON ─── */
 .btn-export-excel{
@@ -1678,6 +1734,9 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
   <div class="priba-page scroll-target" id="priba-page" style="display:none"></div>
   <div class="nps-page scroll-target" id="nps-page" style="display:none"></div>
 
+  <!-- Disclaimer Page -->
+  <div class="disclaimer-page scroll-target" id="disclaimer-page" style="display:none"></div>
+
   <!-- Sources -->
   <div class="sources-section" id="sources-section">
     <div class="sources-title">Sources &amp; Methodology</div>
@@ -2363,13 +2422,13 @@ function renderPribaPage() {
       </div>
     </div>
 
-    <div class="priba-disclaimer">
-      <div class="priba-disclaimer-label">
-        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Z" fill="#d4a853"/><path d="M7 7h2v5H7V7Zm0-3h2v2H7V4Z" fill="#d4a853"/></svg>
-        External Source — Not Independently Validated
+    <div class="nps-page-desc">
+      <div class="nps-page-desc-label">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="var(--cyan)" stroke-width="1.4"/><path d="M8 7v5" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="4.5" r="0.9" fill="var(--cyan)"/></svg>
+        About This Page
       </div>
-      <div class="priba-disclaimer-text">
-        This ranking is sourced directly from the Euromoney Private Banking Survey and has not been independently confirmed or validated through individual institution public reports. Figures represent Europe-advised AUM as self-reported by institutions to Euromoney. AUM definitions, scope boundaries, and reporting periods may differ between institutions. Expect variances relative to figures shown elsewhere in this dashboard.
+      <div class="nps-page-desc-text">
+        This page shows <strong>Europe's Top 30 Private Banks</strong> ranked by Europe-advised assets under management, sourced directly from the <strong>Euromoney Private Banking Survey (1H 2025)</strong>. Figures are self-reported by institutions to Euromoney and have not been independently confirmed against individual institution public reports. AUM definitions, scope boundaries, and reporting periods may differ between institutions — expect variances relative to figures shown elsewhere in this dashboard.
       </div>
     </div>
 
@@ -2434,6 +2493,7 @@ function renderTabs() {
   const ulActive = state.view === 'updatelog' ? ' active' : '';
   const pbActive = state.view === 'priba' ? ' active' : '';
   const npsActive = state.view === 'nps' ? ' active' : '';
+  const discActive = state.view === 'disclaimer' ? ' active' : '';
   nav.innerHTML = `
     <div class="country-tabs-row1">
       <button class="country-tab home-tab" onclick="document.getElementById('landing').scrollIntoView({behavior:'smooth'})" title="Back to overview" aria-label="Back to landing page"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 5.5L6.5 1 12 5.5V12H8.5V8.5H4.5V12H1V5.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></svg></button>
@@ -2449,6 +2509,7 @@ function renderTabs() {
       <button class="country-tab priba-tab${pbActive}" onclick="handlePribaTab()">🏦 PriBa Ranking</button>
       <button class="country-tab nps-tab${npsActive}" onclick="handleNpsTab()">📊 NPS Ranking</button>
       <button class="country-tab updatelog-tab${ulActive}" onclick="handleUpdateLogTab()">🕓 Update Log</button>
+      <button class="country-tab disclaimer-tab${discActive}" onclick="handleDisclaimerTab()">⚠️ Disclaimer</button>
       <button class="btn-nav-export" onclick="exportToExcel()">
         <svg width="13" height="13" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.5C2 2.67 2.67 2 3.5 2h5.086a1.5 1.5 0 0 1 1.06.44l2.915 2.914A1.5 1.5 0 0 1 13 6.414V11.5A1.5 1.5 0 0 1 11.5 13h-8A1.5 1.5 0 0 1 2 11.5v-8Z" stroke="currentColor" stroke-width="1.2"/><path d="M9 2v3.5H12.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M4.5 9l1.5 1.5L7.5 9M6 10.5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Export all data to Excel
@@ -3106,6 +3167,46 @@ function renderSourcesPage() {
 }
 
 // ══════════════════════════════════════════
+//  RENDER DISCLAIMER PAGE
+// ══════════════════════════════════════════
+function renderDisclaimer() {
+  const page = document.getElementById('disclaimer-page');
+
+  page.innerHTML = `
+    <div class="disclaimer-header">
+      <div class="disclaimer-icon">⚠️</div>
+      <div class="disclaimer-title">Important Disclaimer</div>
+      <div class="disclaimer-intro">
+        This project and all associated data are provided for informational purposes only. Please review the key points below before using any data or insights from this dashboard.
+      </div>
+    </div>
+
+    <div class="disclaimer-items">
+      <div class="disclaimer-item">
+        <div class="disclaimer-item-num">1</div>
+        <div class="disclaimer-item-content">
+          <div class="disclaimer-item-label">Personal Side Project</div>
+          <div class="disclaimer-item-text">
+            This is a personal side project developed independently and is not affiliated with ING. No ING resources, infrastructure, or organizational support were used in the creation of this dashboard. All work has been completed on personal time and equipment.
+          </div>
+        </div>
+      </div>
+
+      <div class="disclaimer-item">
+        <div class="disclaimer-item-num">2</div>
+        <div class="disclaimer-item-content">
+          <div class="disclaimer-item-label">Data Security & Privacy</div>
+          <div class="disclaimer-item-text">
+            No ING proprietary data is processed through Claude, shared over the internet, or stored in any external systems. All ING-related data referenced in this dashboard is hardcoded directly into the HTML code after secure offline processing on an ING computer. This ensures complete data isolation and security.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  `;
+}
+
+// ══════════════════════════════════════════
 //  EVENT HANDLERS
 // ══════════════════════════════════════════
 function handleTabClick(code) {
@@ -3259,6 +3360,7 @@ function handleMethodologyTab() {
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'none';
   document.getElementById('nps-page').style.display = 'none';
+  document.getElementById('disclaimer-page').style.display = 'none';
   renderTabs();
   renderMethodologyPage();
   scrollToDashboard();
@@ -3276,6 +3378,7 @@ function handleQualityTab() {
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'none';
   document.getElementById('nps-page').style.display = 'none';
+  document.getElementById('disclaimer-page').style.display = 'none';
   renderTabs();
   renderCaveats();
   scrollToDashboard();
@@ -3293,6 +3396,7 @@ function handleSourcesTab() {
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'none';
   document.getElementById('nps-page').style.display = 'none';
+  document.getElementById('disclaimer-page').style.display = 'none';
   renderTabs();
   renderSourcesPage();
   scrollToDashboard();
@@ -3310,8 +3414,27 @@ function handleUpdateLogTab() {
   document.getElementById('update-log-page').style.display = 'block';
   document.getElementById('priba-page').style.display = 'none';
   document.getElementById('nps-page').style.display = 'none';
+  document.getElementById('disclaimer-page').style.display = 'none';
   renderTabs();
   renderUpdateLog();
+  scrollToDashboard();
+}
+
+function handleDisclaimerTab() {
+  state.view = 'disclaimer';
+  document.getElementById('market-overview-section').style.display = 'none';
+  document.getElementById('mshare-section').style.display = 'none';
+  document.getElementById('deep-dive').style.display = 'none';
+  document.getElementById('sources-section').style.display = 'none';
+  document.getElementById('caveats-section').style.display = 'none';
+  document.getElementById('sources-page').style.display = 'none';
+  document.getElementById('methodology-page').style.display = 'none';
+  document.getElementById('update-log-page').style.display = 'none';
+  document.getElementById('priba-page').style.display = 'none';
+  document.getElementById('nps-page').style.display = 'none';
+  document.getElementById('disclaimer-page').style.display = 'block';
+  renderTabs();
+  renderDisclaimer();
   scrollToDashboard();
 }
 
@@ -3327,6 +3450,7 @@ function handlePribaTab() {
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'block';
   document.getElementById('nps-page').style.display = 'none';
+  document.getElementById('disclaimer-page').style.display = 'none';
   renderTabs();
   renderPribaPage();
   scrollToDashboard();
@@ -3345,6 +3469,7 @@ function handleNpsTab() {
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'none';
   document.getElementById('nps-page').style.display = 'block';
+  document.getElementById('disclaimer-page').style.display = 'none';
   renderTabs();
   renderNpsPage();
   scrollToDashboard();
@@ -3619,6 +3744,7 @@ function handleCardClick(code) {
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'none';
   document.getElementById('nps-page').style.display = 'none';
+  document.getElementById('disclaimer-page').style.display = 'none';
   renderTabs();
   updateActiveCard(code);
   renderDeepDive(code);
