@@ -80,7 +80,20 @@
       "Bash(git mv *)",
       "Bash(git rm *)",
       "Bash(git commit *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(pdftotext './Europe'\"'\"'s largest private banks by AUM_NNA - Euromoney.pdf' -)",
+      "Bash(pdftotext '/c/Users/SARP/Desktop/Devs/Investments analysis/data/Europe'\"'\"'s largest private banks by AUM_NNA - Euromoney.pdf' /tmp/extract.txt)",
+      "Bash(pdftotext 'C:\\\\Users\\\\SARP\\\\Desktop\\\\Devs\\\\Investments analysis\\\\data\\\\Europe'\"'\"'s largest private banks by AUM_NNA - Euromoney.pdf' /tmp/extract.txt)",
+      "Bash(pdftotext \"data/Europe's largest private banks by AUM_NNA - Euromoney.pdf\" -)",
+      "Bash(pdftotext *.pdf -)",
+      "Bash(pdftotext -enc UTF-8 \"Europe's largest private banks by AUM_NNA - Euromoney.pdf\" -)",
+      "Bash(pdfinfo \"Europe's largest private banks by AUM_NNA - Euromoney.pdf\")",
+      "Bash(mutool info *)",
+      "Bash(ls -lh *.json *.md)",
+      "Bash(pdftotext -layout \"/c/Users/SARP/Desktop/Devs/Investments analysis/data/Europe's largest private banks by AUM_NNA - Euromoney.pdf\" -)",
+      "Bash(pdftotext -layout \"Europe's largest private banks by AUM_NNA - Euromoney.pdf\" -)",
+      "Bash(npm list *)",
+      "Bash(powershell.exe *)"
     ]
   }
 }

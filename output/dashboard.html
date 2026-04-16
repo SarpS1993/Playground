@@ -198,6 +198,10 @@ body::after{
 .country-tab.updatelog-tab:hover{background:rgba(74,222,128,0.07);border-color:rgba(74,222,128,0.22);color:#86efac}
 .country-tab.updatelog-tab.active{color:#fff;background:rgba(74,222,128,0.12);border-color:rgba(74,222,128,0.32);box-shadow:0 0 14px rgba(74,222,128,0.1)}
 .country-tab.updatelog-tab.active::after{background:#4ade80}
+.country-tab.priba-tab{color:#d4a853}
+.country-tab.priba-tab:hover{background:rgba(212,168,83,0.07);border-color:rgba(212,168,83,0.22);color:#e8c97a}
+.country-tab.priba-tab.active{color:#fff;background:rgba(212,168,83,0.12);border-color:rgba(212,168,83,0.32);box-shadow:0 0 14px rgba(212,168,83,0.12)}
+.country-tab.priba-tab.active::after{background:#d4a853}
 
 /* ─── EXPORT BUTTON ─── */
 .btn-export-excel{
@@ -260,6 +264,78 @@ body::after{
   color:var(--t1);letter-spacing:-0.3px;
 }
 .update-log-desc{font-size:13.5px;color:var(--t2);line-height:1.65;max-width:680px}
+
+/* ─── PRIBA PAGE ─── */
+.priba-page{margin-top:0}
+.priba-disclaimer{
+  padding:20px 26px;
+  background:linear-gradient(135deg,rgba(212,168,83,0.08) 0%,var(--bg2) 70%);
+  border:1px solid rgba(212,168,83,0.25);
+  border-left:3px solid #d4a853;
+  border-radius:var(--r12);
+  margin-bottom:32px;
+}
+.priba-disclaimer-label{
+  font-family:var(--fm);font-size:10px;color:#d4a853;
+  letter-spacing:0.14em;text-transform:uppercase;margin-bottom:7px;
+  display:flex;align-items:center;gap:7px;
+}
+.priba-disclaimer-text{font-family:var(--fb);font-size:14px;color:var(--t2);line-height:1.65}
+.priba-meta-row{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:28px;
+}
+.priba-meta-chip{
+  font-family:var(--fb);font-size:12px;color:var(--t3);
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:20px;padding:4px 13px;
+}
+.priba-table-wrap{overflow-x:auto;border-radius:var(--r12);border:1px solid rgba(212,168,83,0.15)}
+.priba-table{width:100%;border-collapse:collapse;font-family:var(--fb);font-size:14px}
+.priba-table thead tr{background:linear-gradient(90deg,rgba(212,168,83,0.1) 0%,rgba(212,168,83,0.04) 100%)}
+.priba-table th{
+  font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+  color:#d4a853;font-weight:500;padding:14px 18px;text-align:left;
+  border-bottom:1px solid rgba(212,168,83,0.2);white-space:nowrap;cursor:pointer;
+  user-select:none;
+}
+.priba-table th:hover{color:#e8c97a}
+.priba-table th.sort-asc::after{content:' ▲';font-size:9px;opacity:0.7}
+.priba-table th.sort-desc::after{content:' ▼';font-size:9px;opacity:0.7}
+.priba-table td{
+  padding:13px 18px;border-bottom:1px solid rgba(212,168,83,0.07);
+  color:var(--t2);vertical-align:middle;
+}
+.priba-table tbody tr:last-child td{border-bottom:none}
+.priba-table tbody tr:hover td{background:rgba(212,168,83,0.035)}
+.priba-rank{
+  font-family:var(--fm);font-size:12px;color:var(--t4);
+  width:44px;text-align:center;
+}
+.priba-rank-top{color:#d4a853;font-weight:600}
+.priba-bank-name{font-family:var(--fb);color:var(--t1);font-weight:600;font-size:14px}
+.priba-bank-name.is-ing{color:#FF7A3D}
+.priba-hq{font-family:var(--fb);font-size:12px;color:var(--t3);margin-top:2px;display:block}
+.priba-type-pill{
+  display:inline-block;font-family:var(--fb);font-size:11px;
+  border-radius:20px;padding:3px 11px;white-space:nowrap;
+}
+.priba-type-universal{background:rgba(96,165,250,0.12);color:#60a5fa;border:1px solid rgba(96,165,250,0.22)}
+.priba-type-pureplay{background:rgba(212,168,83,0.11);color:#d4a853;border:1px solid rgba(212,168,83,0.25)}
+.priba-aum{
+  font-family:var(--fm);font-size:14px;color:var(--t1);
+  white-space:nowrap;text-align:right;
+}
+.priba-aum-top{color:#e8c97a;font-weight:600}
+.priba-yoy{font-family:var(--fm);font-size:13px;text-align:right;white-space:nowrap}
+.priba-yoy-pos{color:#4ade80}
+.priba-yoy-neg{color:#f87171}
+.priba-footnotes{margin-top:24px;padding:22px 26px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r12)}
+.priba-footnote-title{font-family:var(--fm);font-size:10px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px}
+.priba-footnote-item{display:flex;gap:12px;margin-bottom:12px;font-family:var(--fb);font-size:13.5px;color:var(--t2);line-height:1.65}
+.priba-footnote-item:last-child{margin-bottom:0}
+.priba-footnote-mark{color:#d4a853;font-family:var(--fm);font-size:12px;flex-shrink:0;padding-top:2px}
+.priba-source-line{margin-top:16px;font-family:var(--fb);font-size:12px;color:var(--t3);border-top:1px solid var(--border);padding-top:14px;line-height:1.6}
+
 .country-tab.home-tab{color:var(--t3);padding:7px 12px;flex-shrink:0}
 .country-tab.home-tab:hover{color:var(--orange-text);background:var(--orange-dim);border-color:rgba(255,85,0,0.28)}
 .tab-flag{display:inline-flex;align-items:center;flex-shrink:0}
@@ -1485,6 +1561,9 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
   <!-- Update Log Page -->
   <div class="scroll-target" id="update-log-page" style="display:none"></div>
 
+  <!-- PriBa Ranking Page -->
+  <div class="priba-page scroll-target" id="priba-page" style="display:none"></div>
+
   <!-- Sources -->
   <div class="sources-section" id="sources-section">
     <div class="sources-title">Sources &amp; Methodology</div>
@@ -1512,14 +1591,14 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 
 </div><!-- /#dashboard -->
 
-<!-- INDEPENDENCE DISCLAIMER -->
+<!-- DISCLAIMER -->
 <div class="disclaimer-wrap">
   <div class="disclaimer-card">
-    <div class="disclaimer-label">Independence Notice</div>
+    <div class="disclaimer-label">Disclaimer</div>
     <p class="disclaimer-text">This project is developed and maintained independently. It does not use, reference, or incorporate any ING resources, systems, internal data, or intellectual property.</p>
   </div>
 </div>
-<!-- END INDEPENDENCE DISCLAIMER -->
+<!-- END DISCLAIMER -->
 <script>
 /* SheetJS CE (xlsx.js) — inlined for offline/email use */
 /*! xlsx.js (C) 2013-present SheetJS -- http://sheetjs.com */
@@ -1573,6 +1652,11 @@ const ING_ENTRY = (country) => ING_DATA[country];
 //  UPDATE LOG
 // ══════════════════════════════════════════
 const UPDATE_LOG = [
+  {
+    date: '2026-04-16',
+    title: 'PriBa Ranking Tab (Euromoney)',
+    desc: 'Added a new "PriBa Ranking" tab showcasing Europe\'s Top 30 Private Banks by AUM sourced from the Euromoney Private Banking Survey (1H 2025, USD bn).'
+  },
   {
     date: '2026-04-15',
     title: 'Excel Export',
@@ -1645,6 +1729,21 @@ function exportToExcel() {
     ingRows.push([d.name, d.aum != null ? d.aum : '', d.auc != null ? d.auc : '', d.inv != null ? d.inv : '', d.clients != null ? d.clients : '', d.rev != null ? d.rev : '', d.period || '']);
   });
   XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(ingRows), 'ING');
+
+  // PriBa Ranking sheet
+  const pribaRows = [
+    ['Rank', 'Institution', 'HQ', 'Bank Type', 'Europe AUM (USD bn)', 'YoY AUM Growth (%)', 'Footnote'],
+    ['SOURCE: Euromoney Private Banking Survey · Europe-advised AUM as of end-1H 2025 · Not independently validated — see disclaimer on dashboard', '', '', '', '', '', ''],
+  ];
+  PRIBA_DATA.forEach(r => {
+    pribaRows.push([r.rank, r.name, r.hq, r.type, r.aum, r.yoy, r.footnote || '']);
+  });
+  pribaRows.push([]);
+  pribaRows.push(['Footnotes:']);
+  pribaRows.push(['a', 'ABN AMRO MeesPierson: Includes deposits, savings, and payment balances — not pure invested AUM. Figure likely overstates comparable investment AUM.']);
+  pribaRows.push(['b', 'Delen Private Bank: Broad AUM definition includes discretionary mandates and may include deposits within portfolios.']);
+  pribaRows.push(['*', 'AUM definitions vary: Pure-play banks typically report invested assets only; Universal banks may include broader mandates and deposits.']);
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(pribaRows), 'PriBa Ranking (Euromoney)');
 
   XLSX.writeFile(wb, 'ING_European_Investment_Landscape_FY2025.xlsx');
 }
@@ -1900,6 +1999,155 @@ function observeCountUps() {
 }
 
 // ══════════════════════════════════════════
+//  PRIBA RANKING DATA (Euromoney, 1H2025)
+// ══════════════════════════════════════════
+const PRIBA_DATA = [
+  {rank:1,  name:'UBS Global Wealth Management',    hq:'Switzerland',  type:'Universal', aum:1820, yoy:10,  footnote:null},
+  {rank:2,  name:'Deutsche Bank Private Bank',       hq:'Germany',      type:'Universal', aum:485,  yoy:18,  footnote:null},
+  {rank:3,  name:'Fideuram Intesa Sanpaolo',         hq:'Italy',        type:'Pure-play', aum:474,  yoy:17,  footnote:null},
+  {rank:4,  name:'BNP Paribas Wealth Management',    hq:'France',       type:'Universal', aum:444,  yoy:16,  footnote:null},
+  {rank:5,  name:'LGT Private Banking',              hq:'Liechtenstein',type:'Pure-play', aum:306,  yoy:13,  footnote:null},
+  {rank:6,  name:'ABN AMRO MeesPierson',             hq:'Netherlands',  type:'Universal', aum:288,  yoy:7,   footnote:'a'},
+  {rank:7,  name:'Julius Baer',                      hq:'Switzerland',  type:'Pure-play', aum:280,  yoy:-2,  footnote:null},
+  {rank:8,  name:'Santander Private Banking',        hq:'Spain',        type:'Universal', aum:251,  yoy:21,  footnote:null},
+  {rank:9,  name:'Indosuez Wealth Management',       hq:'France',       type:'Pure-play', aum:229,  yoy:14,  footnote:null},
+  {rank:10, name:'J. Safra Sarasin',                 hq:'Switzerland',  type:'Pure-play', aum:222,  yoy:10,  footnote:null},
+  {rank:11, name:'CaixaBank Wealth Management',      hq:'Spain',        type:'Universal', aum:207,  yoy:17,  footnote:null},
+  {rank:12, name:'Banque Edmond de Rothschild',      hq:'Switzerland',  type:'Pure-play', aum:202,  yoy:3,   footnote:null},
+  {rank:13, name:'Union Bancaire Privée',            hq:'Switzerland',  type:'Pure-play', aum:196,  yoy:30,  footnote:null},
+  {rank:14, name:'Lombard Odier',                    hq:'Switzerland',  type:'Pure-play', aum:169,  yoy:2,   footnote:null},
+  {rank:15, name:'Nordea Private Banking',           hq:'Norway',       type:'Universal', aum:158,  yoy:17,  footnote:null},
+  {rank:16, name:'Société Générale Private Banking', hq:'France',       type:'Universal', aum:155,  yoy:-5,  footnote:null},
+  {rank:17, name:'Vontobel',                         hq:'Switzerland',  type:'Pure-play', aum:147,  yoy:21,  footnote:null},
+  {rank:18, name:'SEB Private Bank',                 hq:'Sweden',       type:'Universal', aum:127,  yoy:2,   footnote:null},
+  {rank:19, name:'Banca Generali',                   hq:'Italy',        type:'Pure-play', aum:126,  yoy:18,  footnote:null},
+  {rank:20, name:'EFG International',                hq:'Switzerland',  type:'Pure-play', aum:121,  yoy:16,  footnote:null},
+  {rank:21, name:'KBC Private Banking',              hq:'Belgium',      type:'Universal', aum:97,   yoy:6,   footnote:null},
+  {rank:22, name:'Delen Private Bank',               hq:'Belgium',      type:'Pure-play', aum:90,   yoy:39,  footnote:'b'},
+  {rank:23, name:'SabadellUrquijo Banca Privada',    hq:'Spain',        type:'Universal', aum:81,   yoy:23,  footnote:null},
+  {rank:24, name:'Coutts',                           hq:'UK',           type:'Universal', aum:71,   yoy:21,  footnote:null},
+  {rank:25, name:'Bethmann Bank',                    hq:'Germany',      type:'Pure-play', aum:49,   yoy:3,   footnote:null},
+  {rank:26, name:'VP Bank',                          hq:'Liechtenstein',type:'Pure-play', aum:45,   yoy:12,  footnote:null},
+  {rank:27, name:'Van Lanschot Kempen',              hq:'Netherlands',  type:'Pure-play', aum:42,   yoy:20,  footnote:null},
+  {rank:28, name:'Mediobanca Private Banking',       hq:'Italy',        type:'Universal', aum:37,   yoy:19,  footnote:null},
+  {rank:29, name:'ING Private Banking',              hq:'Netherlands',  type:'Universal', aum:36,   yoy:22,  footnote:null},
+  {rank:30, name:'DZ PRIVATBANK',                    hq:'Germany',      type:'Universal', aum:33,   yoy:23,  footnote:null},
+];
+
+// ══════════════════════════════════════════
+//  RENDER PRIBA PAGE
+// ══════════════════════════════════════════
+let pribaSort = {key:'rank', dir:'asc'};
+
+function renderPribaPage() {
+  const page = document.getElementById('priba-page');
+
+  function sortData() {
+    return [...PRIBA_DATA].sort((a, b) => {
+      let av = a[pribaSort.key], bv = b[pribaSort.key];
+      if (pribaSort.key === 'name' || pribaSort.key === 'hq' || pribaSort.key === 'type') {
+        av = (av || '').toLowerCase(); bv = (bv || '').toLowerCase();
+        return pribaSort.dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+      }
+      return pribaSort.dir === 'asc' ? av - bv : bv - av;
+    });
+  }
+
+  function thClass(key) {
+    if (pribaSort.key !== key) return '';
+    return pribaSort.dir === 'asc' ? ' sort-asc' : ' sort-desc';
+  }
+
+  function buildRows() {
+    return sortData().map(r => {
+      const isING = r.name === 'ING Private Banking';
+      const isTop3 = r.rank <= 3;
+      const yoyClass = r.yoy >= 0 ? 'priba-yoy-pos' : 'priba-yoy-neg';
+      const yoyStr = r.yoy >= 0 ? `+${r.yoy}%` : `${r.yoy}%`;
+      const typePill = r.type === 'Universal'
+        ? `<span class="priba-type-pill priba-type-universal">Universal</span>`
+        : `<span class="priba-type-pill priba-type-pureplay">Pure-play</span>`;
+      const fnMark = r.footnote ? `<sup style="color:#d4a853;font-size:9px;margin-left:2px">${r.footnote}</sup>` : '';
+      const aumClass = isTop3 ? 'priba-aum priba-aum-top' : 'priba-aum';
+      const nameClass = isING ? 'priba-bank-name is-ing' : 'priba-bank-name';
+      return `<tr>
+        <td class="priba-rank${isTop3 ? ' priba-rank-top' : ''}">${r.rank}</td>
+        <td><span class="${nameClass}">${r.name}${fnMark}</span><span class="priba-hq">${r.hq}</span></td>
+        <td>${typePill}</td>
+        <td class="${aumClass}" style="text-align:right">${r.aum.toLocaleString('en-US')}</td>
+        <td class="priba-yoy ${yoyClass}">${yoyStr}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function thClick(key) {
+    return `onclick="pribaSort.key='${key}';pribaSort.dir=(pribaSort.key==='${key}'&&pribaSort.dir==='asc')?'desc':'asc';pribaSort.key='${key}';renderPribaPage()"`;
+  }
+
+  page.innerHTML = `
+    <div class="section-head" style="margin-top:0">
+      <div>
+        <div class="section-eyebrow" style="color:#d4a853">External Benchmarking · Euromoney</div>
+        <div class="section-title">Europe's Top 30 Private Banks by AUM</div>
+        <div class="section-desc" style="margin-top:6px">Europe-advised assets under management, 1H 2025 · USD billions · Source: Euromoney Private Banking Survey</div>
+      </div>
+    </div>
+
+    <div class="priba-disclaimer">
+      <div class="priba-disclaimer-label">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Z" fill="#d4a853"/><path d="M7 7h2v5H7V7Zm0-3h2v2H7V4Z" fill="#d4a853"/></svg>
+        External Source — Not Independently Validated
+      </div>
+      <div class="priba-disclaimer-text">
+        This ranking is sourced directly from the Euromoney Private Banking Survey and has not been independently confirmed or validated through individual institution public reports. Figures represent Europe-advised AUM as self-reported by institutions to Euromoney. AUM definitions, scope boundaries, and reporting periods may differ between institutions. Expect variances relative to figures shown elsewhere in this dashboard.
+      </div>
+    </div>
+
+    <div class="priba-meta-row">
+      <span class="priba-meta-chip">📅 Reference period: 1H 2025 (end-June 2025)</span>
+      <span class="priba-meta-chip">💱 Currency: USD billions</span>
+      <span class="priba-meta-chip">🔢 30 institutions ranked</span>
+      <span class="priba-meta-chip">📊 Ranked by Europe-advised AUM</span>
+    </div>
+
+    <div class="priba-table-wrap">
+      <table class="priba-table" id="priba-table">
+        <thead>
+          <tr>
+            <th class="priba-rank${thClass('rank')}" onclick="pribaSort={key:'rank',dir:pribaSort.key==='rank'&&pribaSort.dir==='asc'?'desc':'asc'};renderPribaPage()" title="Sort by rank">#</th>
+            <th class="${thClass('name')}" onclick="pribaSort={key:'name',dir:pribaSort.key==='name'&&pribaSort.dir==='asc'?'desc':'asc'};renderPribaPage()">Institution</th>
+            <th class="${thClass('type')}" onclick="pribaSort={key:'type',dir:pribaSort.key==='type'&&pribaSort.dir==='asc'?'desc':'asc'};renderPribaPage()">Type</th>
+            <th class="${thClass('aum')}" style="text-align:right" onclick="pribaSort={key:'aum',dir:pribaSort.key==='aum'&&pribaSort.dir==='asc'?'desc':'asc'};renderPribaPage()">Europe AUM (USD bn)</th>
+            <th class="${thClass('yoy')}" style="text-align:right" onclick="pribaSort={key:'yoy',dir:pribaSort.key==='yoy'&&pribaSort.dir==='asc'?'desc':'asc'};renderPribaPage()">YoY %</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${buildRows()}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="priba-footnotes">
+      <div class="priba-footnote-title">Footnotes</div>
+      <div class="priba-footnote-item">
+        <span class="priba-footnote-mark"><sup>a</sup></span>
+        <span>ABN AMRO MeesPierson (€288bn): Figure reflects total client assets under MeesPierson's mandate, which includes deposits, savings accounts, current accounts, and payment balances in addition to invested assets. The reported figure is therefore not directly comparable with pure investment AUM reported by other institutions and should be treated as an overstatement of invested wealth.</span>
+      </div>
+      <div class="priba-footnote-item">
+        <span class="priba-footnote-mark"><sup>b</sup></span>
+        <span>Delen Private Bank (€90bn): Total assets under management include a broad definition of managed assets that may encompass discretionary mandates alongside deposits and cash held within portfolios. Cross-border client assets are included. The figure may overstate comparable investment AUM relative to pure private banking peers.</span>
+      </div>
+      <div class="priba-footnote-item">
+        <span class="priba-footnote-mark">⚠</span>
+        <span>AUM definitions vary across institutions. "Pure-play" private banks typically report only invested assets; "Universal" banks may include broader wealth management mandates, deposits, and fiduciary assets. Direct comparisons should be made with caution.</span>
+      </div>
+      <div class="priba-source-line">
+        Source: Euromoney Private Banking Survey · Europe-advised assets under management as of end-1H 2025 · AUM and currency conversions to USD unless stated otherwise in footnotes · Rankings reflect self-reported figures submitted by institutions to Euromoney.
+      </div>
+    </div>`;
+}
+
+// ══════════════════════════════════════════
 //  RENDER TABS
 // ══════════════════════════════════════════
 function renderTabs() {
@@ -1914,6 +2162,7 @@ function renderTabs() {
   const qActive = state.view === 'caveats' ? ' active' : '';
   const sActive = state.view === 'sources' ? ' active' : '';
   const ulActive = state.view === 'updatelog' ? ' active' : '';
+  const pbActive = state.view === 'priba' ? ' active' : '';
   nav.innerHTML = `
     <div class="country-tabs-row1">
       <button class="country-tab home-tab" onclick="document.getElementById('landing').scrollIntoView({behavior:'smooth'})" title="Back to overview" aria-label="Back to landing page"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 5.5L6.5 1 12 5.5V12H8.5V8.5H4.5V12H1V5.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></svg></button>
@@ -1927,6 +2176,7 @@ function renderTabs() {
       <button class="country-tab quality-tab${qActive}" onclick="handleQualityTab()">⚠ Data Quality</button>
       <button class="country-tab sources-tab${sActive}" onclick="handleSourcesTab()">📄 Sources</button>
       <button class="country-tab updatelog-tab${ulActive}" onclick="handleUpdateLogTab()">🕓 Update Log</button>
+      <button class="country-tab priba-tab${pbActive}" onclick="handlePribaTab()">🏦 PriBa Ranking</button>
       <button class="btn-nav-export" onclick="exportToExcel()">
         <svg width="13" height="13" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.5C2 2.67 2.67 2 3.5 2h5.086a1.5 1.5 0 0 1 1.06.44l2.915 2.914A1.5 1.5 0 0 1 13 6.414V11.5A1.5 1.5 0 0 1 11.5 13h-8A1.5 1.5 0 0 1 2 11.5v-8Z" stroke="currentColor" stroke-width="1.2"/><path d="M9 2v3.5H12.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M4.5 9l1.5 1.5L7.5 9M6 10.5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Export all data to Excel
@@ -2599,6 +2849,7 @@ function handleTabClick(code) {
   document.getElementById('sources-page').style.display = 'none';
   document.getElementById('methodology-page').style.display = 'none';
   document.getElementById('update-log-page').style.display = 'none';
+  document.getElementById('priba-page').style.display = 'none';
   renderTabs();
   updateActiveCard(code);
   renderDeepDive(code);
@@ -2734,6 +2985,7 @@ function handleMethodologyTab() {
   document.getElementById('sources-page').style.display = 'none';
   document.getElementById('methodology-page').style.display = 'block';
   document.getElementById('update-log-page').style.display = 'none';
+  document.getElementById('priba-page').style.display = 'none';
   renderTabs();
   renderMethodologyPage();
   scrollToDashboard();
@@ -2749,6 +3001,7 @@ function handleQualityTab() {
   document.getElementById('sources-page').style.display = 'none';
   document.getElementById('methodology-page').style.display = 'none';
   document.getElementById('update-log-page').style.display = 'none';
+  document.getElementById('priba-page').style.display = 'none';
   renderTabs();
   renderCaveats();
   scrollToDashboard();
@@ -2763,6 +3016,8 @@ function handleSourcesTab() {
   document.getElementById('caveats-section').style.display = 'none';
   document.getElementById('sources-page').style.display = 'block';
   document.getElementById('methodology-page').style.display = 'none';
+  document.getElementById('update-log-page').style.display = 'none';
+  document.getElementById('priba-page').style.display = 'none';
   renderTabs();
   renderSourcesPage();
   scrollToDashboard();
@@ -2778,8 +3033,25 @@ function handleUpdateLogTab() {
   document.getElementById('sources-page').style.display = 'none';
   document.getElementById('methodology-page').style.display = 'none';
   document.getElementById('update-log-page').style.display = 'block';
+  document.getElementById('priba-page').style.display = 'none';
   renderTabs();
   renderUpdateLog();
+  scrollToDashboard();
+}
+
+function handlePribaTab() {
+  state.view = 'priba';
+  document.getElementById('market-overview-section').style.display = 'none';
+  document.getElementById('mshare-section').style.display = 'none';
+  document.getElementById('deep-dive').style.display = 'none';
+  document.getElementById('sources-section').style.display = 'none';
+  document.getElementById('caveats-section').style.display = 'none';
+  document.getElementById('sources-page').style.display = 'none';
+  document.getElementById('methodology-page').style.display = 'none';
+  document.getElementById('update-log-page').style.display = 'none';
+  document.getElementById('priba-page').style.display = 'block';
+  renderTabs();
+  renderPribaPage();
   scrollToDashboard();
 }
 
@@ -2795,6 +3067,8 @@ function handleCardClick(code) {
   document.getElementById('caveats-section').style.display = 'none';
   document.getElementById('sources-page').style.display = 'none';
   document.getElementById('methodology-page').style.display = 'none';
+  document.getElementById('update-log-page').style.display = 'none';
+  document.getElementById('priba-page').style.display = 'none';
   renderTabs();
   updateActiveCard(code);
   renderDeepDive(code);

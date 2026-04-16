@@ -13,6 +13,10 @@ Single-file HTML dashboard (`output/dashboard.html`) benchmarking ING's investme
 | `data/kbc_q4_2025_quarterly.pdf` | KBC Q4 2025 Quarterly Report (downloaded) |
 | `data/unicredit_q4_2025.pdf` | UniCredit FY2025 press release (downloaded) |
 
+## Editing Rules
+
+> **IMPORTANT:** All changes must be made to `output/dashboard.html` only. Do **not** edit `docs/index.html` unless the user explicitly instructs it.
+
 ## Dashboard Architecture
 
 ### Data Layer (`const DATA`)
