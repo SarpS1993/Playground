@@ -1384,6 +1384,91 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 @media(max-width:768px){
   .disclaimer-wrap{padding:24px 22px 36px}
 }
+
+/* ─── NPS PAGE ─── */
+.nps-page{margin-top:0}
+.nps-summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
+@media(max-width:1100px){.nps-summary-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.nps-summary-grid{grid-template-columns:1fr}}
+
+.nps-card{
+  background:linear-gradient(145deg,var(--bg2) 0%,var(--bg3) 100%);
+  border:1px solid var(--border);border-radius:var(--r16);padding:24px;
+  cursor:pointer;transition:all 250ms var(--ease);position:relative;overflow:hidden;
+}
+.nps-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:transparent;transition:background 250ms var(--ease);
+}
+.nps-card:hover{border-color:rgba(255,85,0,0.28);transform:translateY(-4px);
+  box-shadow:0 14px 40px rgba(0,0,0,0.45),0 0 0 1px rgba(255,85,0,0.15)}
+.nps-card:hover::before{background:linear-gradient(90deg,var(--orange),#FF9500)}
+.nps-card.nps-active{border-color:rgba(255,85,0,0.35);background:linear-gradient(145deg,rgba(255,85,0,0.07) 0%,var(--bg3) 100%)}
+.nps-card.nps-active::before{background:linear-gradient(90deg,var(--orange),#FF9500);box-shadow:0 0 10px rgba(255,85,0,0.4)}
+
+.nps-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.nps-card-identity{display:flex;align-items:center;gap:10px}
+.nps-card-name{font-family:var(--fd);font-size:16px;font-weight:600;color:var(--t1)}
+.nps-period-chip{font-family:var(--fm);font-size:9px;color:var(--t3);letter-spacing:0.08em;
+  background:var(--bg4);border:1px solid var(--border2);border-radius:4px;padding:3px 7px}
+
+.nps-score-row{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.nps-score-big{font-family:var(--fm);font-size:38px;font-weight:400;line-height:1;letter-spacing:-2px;color:var(--orange-text)}
+.nps-rank-pill{
+  font-family:var(--fm);font-size:11px;font-weight:500;
+  padding:3px 10px;border-radius:20px;border:1px solid;
+}
+.nps-rank-pill.rank-top1{color:#00FF88;border-color:rgba(0,255,136,0.35);background:rgba(0,255,136,0.08)}
+.nps-rank-pill.rank-top3{color:var(--cyan);border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.07)}
+.nps-rank-pill.rank-mid{color:var(--amber);border-color:rgba(255,184,0,0.3);background:rgba(255,184,0,0.07)}
+.nps-rank-pill.rank-low{color:var(--red);border-color:rgba(255,45,120,0.3);background:rgba(255,45,120,0.07)}
+
+.nps-trend-row{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.nps-trend-label{font-family:var(--fm);font-size:9px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase}
+.nps-trend-months{display:flex;align-items:center;gap:6px;font-family:var(--fm);font-size:11px}
+.nps-month-chip{color:var(--t3);font-size:10px}
+.nps-month-val{color:var(--t2)}
+.nps-delta{font-family:var(--fm);font-size:11px;margin-left:4px}
+.nps-delta.pos{color:#4ade80}.nps-delta.neg{color:#f87171}.nps-delta.flat{color:var(--t3)}
+
+.nps-mini-bar-track{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden}
+.nps-mini-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--orange),#FF9500)}
+
+/* ─── NPS DETAIL ─── */
+.nps-detail-section{margin-top:0}
+.nps-detail-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:26px;gap:16px;flex-wrap:wrap}
+.nps-detail-title{font-family:var(--fd);font-size:22px;font-weight:700;color:var(--t1);letter-spacing:-0.3px}
+.nps-detail-meta{font-family:var(--fm);font-size:10px;color:var(--t3);letter-spacing:0.1em}
+
+.nps-bar-list{display:flex;flex-direction:column;gap:11px;margin-bottom:38px}
+.nps-bar-row{display:grid;grid-template-columns:32px minmax(120px,200px) 1fr 60px;align-items:center;gap:12px;padding:6px 8px;border-radius:8px;border-left:3px solid transparent}
+.nps-bar-rank{font-family:var(--fm);font-size:11px;color:var(--t3);text-align:right}
+.nps-bar-name{font-family:var(--fb);font-size:13px;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nps-bar-track{height:9px;background:rgba(255,255,255,0.04);border-radius:5px;overflow:hidden;position:relative}
+.nps-bar-zero{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,255,255,0.18);z-index:1}
+.nps-bar-fill-pos{height:100%;border-radius:5px;background:linear-gradient(90deg,#1855a0,var(--cyan));transition:width 900ms cubic-bezier(.4,0,.2,1);width:0%;position:absolute;left:0}
+.nps-bar-fill-neg{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--red),#ff6b9d);transition:width 900ms cubic-bezier(.4,0,.2,1);width:0%;position:absolute;right:0}
+.nps-bar-val{font-family:var(--fm);font-size:11px;color:var(--t2);text-align:right;white-space:nowrap}
+.nps-bar-row.nps-ing-row{
+  background:rgba(255,85,0,0.055);
+  border-left-color:var(--orange);
+  box-shadow:inset 0 0 20px rgba(255,85,0,0.03);
+}
+.nps-bar-row.nps-ing-row .nps-bar-name{color:var(--t1);font-weight:600}
+.nps-bar-row.nps-ing-row .nps-bar-fill-pos{background:linear-gradient(90deg,var(--orange),#FF9500)}
+.nps-n-note{font-family:var(--fm);font-size:9px;color:var(--t3);margin-top:3px;letter-spacing:0.06em}
+
+/* ─── NPS SCATTER ─── */
+.nps-scatter-wrap{
+  background:linear-gradient(145deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);border-radius:var(--r16);padding:28px;margin-top:32px;
+}
+.nps-scatter-title{font-family:var(--fd);font-size:17px;font-weight:600;color:var(--t1);margin-bottom:6px}
+.nps-scatter-sub{font-family:var(--fm);font-size:10px;color:var(--t3);margin-bottom:20px;line-height:1.6}
+.nps-scatter-svg{width:100%;overflow:visible;display:block;max-width:560px}
+.nps-scatter-note{font-family:var(--fm);font-size:9px;color:var(--t4);margin-top:14px;line-height:1.6;letter-spacing:0.04em}
+.nps-no-scatter{font-family:var(--fm);font-size:11px;color:var(--t3);line-height:1.7;
+  padding:20px 24px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r12);margin-top:32px}
 </style>
 </head>
 <body>
@@ -1562,6 +1647,7 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 
   <!-- PriBa Ranking Page -->
   <div class="priba-page scroll-target" id="priba-page" style="display:none"></div>
+  <div class="nps-page scroll-target" id="nps-page" style="display:none"></div>
 
   <!-- Sources -->
   <div class="sources-section" id="sources-section">
@@ -1651,6 +1737,11 @@ const ING_ENTRY = (country) => ING_DATA[country];
 //  UPDATE LOG
 // ══════════════════════════════════════════
 const UPDATE_LOG = [
+  {
+    date: '2026-04-16',
+    title: 'NPS Ranking Tab',
+    desc: 'Added Investment NPS Ranking tab showing ING\'s NPS score and competitive rank across all 6 European markets (BE, DE, IT, NL, PL, ES). Source: ING Global NPS Tracking / Toluna, March 2026 (6-month rolling average). Features: cross-country summary grid with 3-month trend, per-country ranked bar chart with animated bars, and NPS vs. Investment Balance dot plot for markets with sufficient dual-data (BE, IT, NL, PL, ES).'
+  },
   {
     date: '2026-04-16',
     title: 'Data Pipeline Automation & AI Analysis Layer',
@@ -1922,7 +2013,8 @@ const state = {
   sortKey: 'aum',
   sortDir: 'desc',
   barsAnimated: {},
-  view: 'country'
+  view: 'country',
+  npsCode: 'DE'
 };
 
 // ══════════════════════════════════════════
@@ -2041,6 +2133,147 @@ const PRIBA_DATA = [
   {rank:29, name:'ING Private Banking',              hq:'Netherlands',  type:'Universal', aum:36,   yoy:22,  footnote:null},
   {rank:30, name:'DZ PRIVATBANK',                    hq:'Germany',      type:'Universal', aum:33,   yoy:23,  footnote:null},
 ];
+
+// ══════════════════════════════════════════
+//  NPS DATA (Investment NPS · Source: ING Global NPS Tracking / Toluna)
+//  Period: March 2026 (6-month rolling average Oct 2025 – Mar 2026)
+//  "Low N" competitors excluded. Ranks are within reportable competitors only.
+// ══════════════════════════════════════════
+const NPS_DATA = {
+  BE: {
+    label: 'Belgium', period: 'Mar 2026',
+    janNPS: 11.5, febNPS: 10.8, marNPS: 8.6,
+    janRank: 5, febRank: 6, marRank: 8, totalRanked: 12,
+    competitors: [
+      {name:'Revolut',           nps:29.6, rank:1,  n:115, isING:false},
+      {name:'Keytrade Bank',     nps:25.3, rank:2,  n:148, isING:false},
+      {name:'Argenta',           nps:16.8, rank:3,  n:366, isING:false},
+      {name:'BNP Paribas Fortis',nps:14.9, rank:4,  n:532, isING:false},
+      {name:'KBC/CBC',           nps:13.3, rank:5,  n:496, isING:false},
+      {name:'Belfius',           nps:12.9, rank:6,  n:530, isING:false},
+      {name:'Crelan',            nps: 8.8, rank:7,  n:192, isING:false},
+      {name:'ING',               nps: 8.6, rank:8,  n:275, isING:true},
+      {name:'DEGIRO',            nps: 7.9, rank:9,  n:206, isING:false},
+      {name:'Bolero',            nps: 2.0, rank:10, n:419, isING:false},
+      {name:'Trade Republic',    nps: 0.5, rank:11, n:233, isING:false},
+      {name:'eToro',             nps:-0.5, rank:12, n:196, isING:false}
+    ],
+    scatter: [
+      {name:'Argenta',           nps:16.8, inv:19.1,  isING:false},
+      {name:'Belfius',           nps:12.9, inv:37.2,  isING:false},
+      {name:'ING',               nps: 8.6, inv:22.0,  isING:true}
+    ],
+    scatterNote: 'KBC and BNP Paribas Fortis excluded — no public investment balance data.'
+  },
+  DE: {
+    label: 'Germany', period: 'Mar 2026',
+    janNPS: 37.4, febNPS: 40.7, marNPS: 38.6,
+    janRank: 2, febRank: 3, marRank: 3, totalRanked: 8,
+    competitors: [
+      {name:'Revolut',        nps:50.9, rank:1, n:106, isING:false},
+      {name:'Trade Republic', nps:46.9, rank:2, n:343, isING:false},
+      {name:'ING',            nps:38.6, rank:3, n:256, isING:true},
+      {name:'Sparkasse',      nps:36.6, rank:4, n:436, isING:false},
+      {name:'Comdirect',      nps:25.4, rank:5, n:108, isING:false},
+      {name:'Commerzbank',    nps:25.1, rank:6, n:109, isING:false},
+      {name:'Deutsche Bank',  nps:23.2, rank:7, n:149, isING:false},
+      {name:'VR-Banken',      nps:22.3, rank:8, n:217, isING:false}
+    ],
+    scatter: null,
+    scatterNote: 'Dot plot unavailable for Germany — major balance holders (DWS, Union Investment, DekaBank) are asset managers not tracked in consumer NPS survey.'
+  },
+  IT: {
+    label: 'Italy', period: 'Mar 2026',
+    janNPS: 41.7, febNPS: 38.7, marNPS: 38.9,
+    janRank: 3, febRank: 4, marRank: 5, totalRanked: 11,
+    competitors: [
+      {name:'Fineco',          nps:63.2, rank:1,  n:180, isING:false},
+      {name:'Revolut',         nps:53.2, rank:2,  n:146, isING:false},
+      {name:'Banca Mediolanum',nps:43.0, rank:3,  n:127, isING:false},
+      {name:'UniCredit',       nps:39.0, rank:4,  n:184, isING:false},
+      {name:'ING',             nps:38.9, rank:5,  n:104, isING:true},
+      {name:'BancoPosta',      nps:30.5, rank:6,  n:293, isING:false},
+      {name:'Intesa Sanpaolo', nps:26.9, rank:7,  n:379, isING:false},
+      {name:'Bper',            nps: 4.1, rank:8,  n:404, isING:false},
+      {name:'Credit Agricole', nps: 3.9, rank:9,  n:363, isING:false},
+      {name:'Credem',          nps: 1.7, rank:10, n:316, isING:false},
+      {name:'Banco BPM',       nps: 1.6, rank:11, n:354, isING:false}
+    ],
+    scatter: [
+      {name:'Fineco',          nps:63.2, inv:128.9, isING:false},
+      {name:'Banca Mediolanum',nps:43.0, inv:155.8, isING:false},
+      {name:'UniCredit',       nps:39.0, inv:193.7, isING:false, caveat:'Group-level AuM+AuA'},
+      {name:'ING',             nps:38.9, inv:6.0,   isING:true},
+      {name:'Intesa Sanpaolo', nps:26.9, inv:425.4, isING:false}
+    ],
+    scatterNote: 'UniCredit shown at group level (Italy ~40–50% of total). Revolut and BancoPosta excluded — no public investment balance data.'
+  },
+  NL: {
+    label: 'Netherlands', period: 'Mar 2026',
+    janNPS: 22.6, febNPS: 20.1, marNPS: 21.1,
+    janRank: 1, febRank: 1, marRank: 1, totalRanked: 8,
+    competitors: [
+      {name:'ING',             nps:21.1, rank:1, n:272, isING:true},
+      {name:'DEGIRO',          nps:18.0, rank:2, n:232, isING:false},
+      {name:'ABN AMRO',        nps:13.8, rank:3, n:199, isING:false},
+      {name:'Rabobank',        nps: 9.3, rank:4, n:213, isING:false},
+      {name:'Brand New Day',   nps: 8.5, rank:5, n:300, isING:false},
+      {name:'EVI Van Lanschot', nps:6.8, rank:6, n:165, isING:false},
+      {name:'Peaks',           nps: 0.4, rank:7, n:202, isING:false},
+      {name:'Bux',             nps:-3.9, rank:8, n:300, isING:false}
+    ],
+    scatter: [
+      {name:'ING',     nps:21.1, inv:17.0,  isING:true},
+      {name:'DEGIRO',  nps:18.0, inv:95.5,  isING:false, caveat:'Pan-EU AUC (NL ~15–20%)'},
+      {name:'Rabobank',nps: 9.3, inv:73.1,  isING:false}
+    ],
+    scatterNote: 'ABN AMRO excluded — no NL-specific balance published. DEGIRO shown at pan-EU AUC level; NL portion estimated at €14–19bn.'
+  },
+  PL: {
+    label: 'Poland', period: 'Mar 2026',
+    janNPS: 37.7, febNPS: 35.6, marNPS: 33.4,
+    janRank: 2, febRank: 3, marRank: 4, totalRanked: 5,
+    competitors: [
+      {name:'Revolut', nps:51.5, rank:1, n:151, isING:false},
+      {name:'mBank',   nps:34.7, rank:2, n:185, isING:false},
+      {name:'Pekao',   nps:34.7, rank:3, n:116, isING:false},
+      {name:'ING',     nps:33.4, rank:4, n:163, isING:true},
+      {name:'PKO BP',  nps:30.4, rank:5, n:274, isING:false}
+    ],
+    scatter: [
+      {name:'mBank',  nps:34.7, inv:1.2,  isING:false},
+      {name:'Pekao',  nps:34.7, inv:9.0,  isING:false},
+      {name:'ING',    nps:33.4, inv:4.0,  isING:true},
+      {name:'PKO BP', nps:30.4, inv:18.9, isING:false}
+    ],
+    scatterNote: 'Revolut excluded — no public investment balance data.'
+  },
+  ES: {
+    label: 'Spain', period: 'Mar 2026',
+    janNPS: 38.0, febNPS: 36.2, marNPS: 37.9,
+    janRank: 2, febRank: 2, marRank: 3, totalRanked: 11,
+    competitors: [
+      {name:'Revolut',            nps:47.3, rank:1,  n:309, isING:false},
+      {name:'Trade Republic',     nps:41.8, rank:2,  n:220, isING:false},
+      {name:'ING',                nps:37.9, rank:3,  n:337, isING:true},
+      {name:'Banco Sabadell',     nps:32.5, rank:4,  n:143, isING:false},
+      {name:'BBVA',               nps:27.9, rank:5,  n:383, isING:false},
+      {name:'MyInvestor',         nps:25.1, rank:6,  n:412, isING:false},
+      {name:'CaixaBank',          nps:21.6, rank:7,  n:397, isING:false},
+      {name:'Banco Santander',    nps:20.9, rank:8,  n:306, isING:false},
+      {name:'Interactive Brokers',nps:16.7, rank:9,  n:176, isING:false},
+      {name:'Indexa Capital',     nps:15.0, rank:10, n:250, isING:false},
+      {name:'DEGIRO',             nps:12.8, rank:11, n:264, isING:false}
+    ],
+    scatter: [
+      {name:'ING',             nps:37.9, inv:22.0,  isING:true},
+      {name:'BBVA',            nps:27.9, inv:119.5, isING:false},
+      {name:'CaixaBank',       nps:21.6, inv:202.9, isING:false},
+      {name:'Banco Santander', nps:20.9, inv:107.4, isING:false}
+    ],
+    scatterNote: 'Revolut, Trade Republic, MyInvestor, Interactive Brokers, Indexa Capital, DEGIRO excluded — no public investment balance data. Banco Sabadell excluded — AUM data not isolated.'
+  }
+};
 
 // ══════════════════════════════════════════
 //  RENDER PRIBA PAGE
@@ -2171,6 +2404,7 @@ function renderTabs() {
   const sActive = state.view === 'sources' ? ' active' : '';
   const ulActive = state.view === 'updatelog' ? ' active' : '';
   const pbActive = state.view === 'priba' ? ' active' : '';
+  const npsActive = state.view === 'nps' ? ' active' : '';
   nav.innerHTML = `
     <div class="country-tabs-row1">
       <button class="country-tab home-tab" onclick="document.getElementById('landing').scrollIntoView({behavior:'smooth'})" title="Back to overview" aria-label="Back to landing page"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1 5.5L6.5 1 12 5.5V12H8.5V8.5H4.5V12H1V5.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></svg></button>
@@ -2185,6 +2419,7 @@ function renderTabs() {
       <button class="country-tab sources-tab${sActive}" onclick="handleSourcesTab()">📄 Sources</button>
       <button class="country-tab updatelog-tab${ulActive}" onclick="handleUpdateLogTab()">🕓 Update Log</button>
       <button class="country-tab priba-tab${pbActive}" onclick="handlePribaTab()">🏦 PriBa Ranking</button>
+      <button class="country-tab nps-tab${npsActive}" onclick="handleNpsTab()">📊 NPS Ranking</button>
       <button class="btn-nav-export" onclick="exportToExcel()">
         <svg width="13" height="13" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.5C2 2.67 2.67 2 3.5 2h5.086a1.5 1.5 0 0 1 1.06.44l2.915 2.914A1.5 1.5 0 0 1 13 6.414V11.5A1.5 1.5 0 0 1 11.5 13h-8A1.5 1.5 0 0 1 2 11.5v-8Z" stroke="currentColor" stroke-width="1.2"/><path d="M9 2v3.5H12.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M4.5 9l1.5 1.5L7.5 9M6 10.5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Export all data to Excel
@@ -2994,6 +3229,7 @@ function handleMethodologyTab() {
   document.getElementById('methodology-page').style.display = 'block';
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'none';
+  document.getElementById('nps-page').style.display = 'none';
   renderTabs();
   renderMethodologyPage();
   scrollToDashboard();
@@ -3010,6 +3246,7 @@ function handleQualityTab() {
   document.getElementById('methodology-page').style.display = 'none';
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'none';
+  document.getElementById('nps-page').style.display = 'none';
   renderTabs();
   renderCaveats();
   scrollToDashboard();
@@ -3026,6 +3263,7 @@ function handleSourcesTab() {
   document.getElementById('methodology-page').style.display = 'none';
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'none';
+  document.getElementById('nps-page').style.display = 'none';
   renderTabs();
   renderSourcesPage();
   scrollToDashboard();
@@ -3042,6 +3280,7 @@ function handleUpdateLogTab() {
   document.getElementById('methodology-page').style.display = 'none';
   document.getElementById('update-log-page').style.display = 'block';
   document.getElementById('priba-page').style.display = 'none';
+  document.getElementById('nps-page').style.display = 'none';
   renderTabs();
   renderUpdateLog();
   scrollToDashboard();
@@ -3058,9 +3297,265 @@ function handlePribaTab() {
   document.getElementById('methodology-page').style.display = 'none';
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'block';
+  document.getElementById('nps-page').style.display = 'none';
   renderTabs();
   renderPribaPage();
   scrollToDashboard();
+}
+
+function handleNpsTab() {
+  state.view = 'nps';
+  state.npsCode = state.npsCode || 'DE';
+  document.getElementById('market-overview-section').style.display = 'none';
+  document.getElementById('mshare-section').style.display = 'none';
+  document.getElementById('deep-dive').style.display = 'none';
+  document.getElementById('sources-section').style.display = 'none';
+  document.getElementById('caveats-section').style.display = 'none';
+  document.getElementById('sources-page').style.display = 'none';
+  document.getElementById('methodology-page').style.display = 'none';
+  document.getElementById('update-log-page').style.display = 'none';
+  document.getElementById('priba-page').style.display = 'none';
+  document.getElementById('nps-page').style.display = 'block';
+  renderTabs();
+  renderNpsPage();
+  scrollToDashboard();
+}
+
+function renderNpsPage() {
+  const page = document.getElementById('nps-page');
+  const codes = ['BE','DE','IT','NL','PL','ES'];
+
+  function rankPillClass(rank, total) {
+    if (rank === 1) return 'rank-top1';
+    if (rank <= 3) return 'rank-top3';
+    if (rank / total <= 0.5) return 'rank-mid';
+    return 'rank-low';
+  }
+
+  function deltaStr(a, b) {
+    const d = b - a;
+    if (Math.abs(d) < 0.05) return '<span class="nps-delta flat">—</span>';
+    const sign = d > 0 ? '+' : '';
+    const cls = d > 0 ? 'pos' : 'neg';
+    return `<span class="nps-delta ${cls}">${sign}${d.toFixed(1)}</span>`;
+  }
+
+  const cards = codes.map(code => {
+    const d = NPS_DATA[code];
+    const isActive = state.npsCode === code;
+    const pillCls = rankPillClass(d.marRank, d.totalRanked);
+    const maxNps = Math.max(...d.competitors.map(c => c.nps));
+    const barPct = Math.max(0, (d.marNPS / maxNps) * 100).toFixed(1);
+    const delta = deltaStr(d.janNPS, d.marNPS);
+    return `
+    <div class="nps-card${isActive ? ' nps-active' : ''}" onclick="npsSelectCountry('${code}')">
+      <div class="nps-card-header">
+        <div class="nps-card-identity">
+          ${flag(code, 'sm')}
+          <div class="nps-card-name">${d.label}</div>
+        </div>
+        <span class="nps-period-chip">${d.period}</span>
+      </div>
+      <div class="nps-score-row">
+        <span class="nps-score-big">${d.marNPS.toFixed(1)}</span>
+        <span class="nps-rank-pill ${pillCls}">#${d.marRank} of ${d.totalRanked}</span>
+      </div>
+      <div class="nps-trend-row">
+        <span class="nps-trend-label">3-month</span>
+        <div class="nps-trend-months">
+          <span class="nps-month-chip">Jan</span>
+          <span class="nps-month-val">${d.janNPS.toFixed(1)}</span>
+          <span class="nps-month-chip">→ Feb</span>
+          <span class="nps-month-val">${d.febNPS.toFixed(1)}</span>
+          <span class="nps-month-chip">→ Mar</span>
+          <span class="nps-month-val">${d.marNPS.toFixed(1)}</span>
+          ${delta}
+        </div>
+      </div>
+      <div class="nps-mini-bar-track">
+        <div class="nps-mini-bar-fill" style="width:${barPct}%"></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  page.innerHTML = `
+    <div class="section-head" style="margin-top:0">
+      <div>
+        <div class="section-eyebrow" style="color:var(--cyan)">Customer Perception · ING Global NPS Tracking / Toluna</div>
+        <div class="section-title">Investment NPS Ranking</div>
+      </div>
+      <div class="section-desc">6-month rolling average · March 2026 · Select a market for full ranking and NPS vs. balance analysis</div>
+    </div>
+    <div class="nps-summary-grid">${cards}</div>
+    <div id="nps-detail"></div>`;
+
+  renderNpsDetail(state.npsCode);
+}
+
+function npsSelectCountry(code) {
+  state.npsCode = code;
+  renderNpsPage();
+  setTimeout(() => {
+    const detail = document.getElementById('nps-detail');
+    if (detail) detail.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 80);
+}
+
+function renderNpsDetail(code) {
+  const detail = document.getElementById('nps-detail');
+  if (!detail) return;
+  const d = NPS_DATA[code];
+  const competitors = d.competitors;
+
+  const allNps = competitors.map(c => c.nps);
+  const maxNps = Math.max(...allNps);
+  const minNps = Math.min(...allNps, 0);
+  const range = maxNps - minNps || 1;
+  const zeroPct = ((-minNps) / range * 100).toFixed(2);
+
+  const rows = competitors.map(c => {
+    const ingCls = c.isING ? ' nps-ing-row' : '';
+    const nameStr = c.isING
+      ? `${c.name} <span style="display:inline-flex;align-items:center;background:linear-gradient(90deg,var(--orange),#FF8C00);color:#fff;font-size:9px;font-family:var(--fd);font-weight:700;padding:1px 7px 2px;border-radius:3px;margin-left:6px;letter-spacing:0.08em;vertical-align:middle">ING</span>`
+      : c.name;
+    const valStr = c.nps >= 0 ? `+${c.nps.toFixed(1)}` : c.nps.toFixed(1);
+
+    let barHtml;
+    if (c.nps >= 0) {
+      const posRange = maxNps > 0 ? maxNps : 1;
+      const pct = (c.nps / posRange * (100 - parseFloat(zeroPct))).toFixed(2);
+      barHtml = `<div class="nps-bar-track">
+        <div class="nps-bar-zero" style="left:${zeroPct}%"></div>
+        <div class="nps-bar-fill-pos" style="left:${zeroPct}%;width:0%" data-npspct="${pct}"></div>
+      </div>`;
+    } else {
+      const negRange = Math.abs(minNps) > 0 ? Math.abs(minNps) : 1;
+      const pct = (Math.abs(c.nps) / negRange * parseFloat(zeroPct)).toFixed(2);
+      const rightStart = (100 - parseFloat(zeroPct)).toFixed(2);
+      barHtml = `<div class="nps-bar-track">
+        <div class="nps-bar-zero" style="left:${zeroPct}%"></div>
+        <div class="nps-bar-fill-neg" style="right:${rightStart}%;width:0%" data-npspct="${pct}"></div>
+      </div>`;
+    }
+
+    return `<div class="nps-bar-row${ingCls}">
+      <div class="nps-bar-rank">#${c.rank}</div>
+      <div class="nps-bar-name">${nameStr}<div class="nps-n-note">n=${c.n}</div></div>
+      ${barHtml}
+      <div class="nps-bar-val">${valStr}</div>
+    </div>`;
+  }).join('');
+
+  detail.innerHTML = `
+    <div class="nps-detail-section">
+      <div class="nps-detail-header">
+        <div class="nps-detail-title">${flag(code,'sm')} ${d.label} — Full NPS Ranking</div>
+        <div class="nps-detail-meta">Source: ING Global NPS Tracking / Toluna · ${d.period} · Low-N competitors excluded</div>
+      </div>
+      <div class="nps-bar-list">${rows}</div>
+      ${renderNpsScatter(code)}
+    </div>`;
+
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.nps-bar-fill-pos[data-npspct]').forEach(el => {
+      el.style.width = el.dataset.npspct + '%';
+    });
+    document.querySelectorAll('.nps-bar-fill-neg[data-npspct]').forEach(el => {
+      el.style.width = el.dataset.npspct + '%';
+    });
+  });
+}
+
+function renderNpsScatter(code) {
+  const d = NPS_DATA[code];
+  if (!d.scatter || d.scatter.length < 2) {
+    return `<div class="nps-no-scatter">
+      <strong style="color:var(--t2)">NPS vs. Investment Balance — not available for ${d.label}</strong><br>
+      ${d.scatterNote}
+    </div>`;
+  }
+
+  const pts = d.scatter;
+  const W = 520, H = 280;
+  const PAD = {top:30, right:36, bottom:52, left:76};
+  const plotW = W - PAD.left - PAD.right;
+  const plotH = H - PAD.top - PAD.bottom;
+
+  const npsVals = pts.map(p => p.nps);
+  const invVals = pts.map(p => p.inv);
+  const npsMin = Math.min(...npsVals) - 6;
+  const npsMax = Math.max(...npsVals) + 6;
+  const logMin = Math.log10(Math.max(0.5, Math.min(...invVals) * 0.6));
+  const logMax = Math.log10(Math.max(...invVals) * 1.5);
+
+  function xPos(nps) {
+    return PAD.left + ((nps - npsMin) / (npsMax - npsMin)) * plotW;
+  }
+  function yPos(inv) {
+    return PAD.top + (1 - (Math.log10(inv) - logMin) / (logMax - logMin)) * plotH;
+  }
+
+  // Y-axis ticks on round log values
+  const yTickVals = [];
+  for (let exp = Math.floor(logMin * 2) / 2; exp <= logMax + 0.1; exp += 0.5) {
+    const v = Math.pow(10, exp);
+    if (v >= Math.pow(10, logMin) * 0.9 && v <= Math.pow(10, logMax) * 1.1) yTickVals.push(v);
+  }
+  // X-axis ticks
+  const xStep = (npsMax - npsMin) > 40 ? 10 : 5;
+  const xTickVals = [];
+  for (let v = Math.ceil(npsMin / xStep) * xStep; v <= npsMax; v += xStep) xTickVals.push(v);
+
+  const gridLines = yTickVals.map(v => {
+    const y = yPos(v);
+    const label = v >= 100 ? Math.round(v) : v < 10 ? v.toFixed(1) : Math.round(v);
+    return `<line x1="${PAD.left}" x2="${W - PAD.right}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <text x="${PAD.left - 6}" y="${(y + 3.5).toFixed(1)}" text-anchor="end" font-size="9" fill="#4e7090" font-family="JetBrains Mono,monospace">€${label}bn</text>`;
+  }).join('');
+
+  const xGridLines = xTickVals.map(v => {
+    const x = xPos(v);
+    return `<line x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="${PAD.top}" y2="${H - PAD.bottom}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <text x="${x.toFixed(1)}" y="${H - PAD.bottom + 14}" text-anchor="middle" font-size="9" fill="#4e7090" font-family="JetBrains Mono,monospace">${v}</text>`;
+  }).join('');
+
+  const dots = pts.map(p => {
+    const cx = xPos(p.nps).toFixed(1);
+    const cy = yPos(p.inv).toFixed(1);
+    const r = p.isING ? 7 : 5.5;
+    const fill = p.isING ? 'rgba(255,85,0,0.88)' : 'rgba(0,212,255,0.65)';
+    const stroke = p.isING ? '#FF5500' : (p.caveat ? '#FFB800' : '#00D4FF');
+    const strokeW = p.caveat ? 1.5 : (p.isING ? 2 : 1);
+    const strokeDash = p.caveat ? '3,2' : 'none';
+    const labelDy = p.isING ? -12 : -10;
+    const nameShort = p.name.length > 16 ? p.name.slice(0, 15) + '…' : p.name;
+    const caveatMark = p.caveat ? ' ⚠' : '';
+    return `<g>
+      <circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeW}" stroke-dasharray="${strokeDash}"/>
+      <text x="${cx}" y="${(parseFloat(cy) + labelDy).toFixed(1)}" text-anchor="middle" font-size="9.5" fill="${p.isING ? '#FF7A3D' : '#8fb8d8'}" font-family="Outfit,sans-serif" font-weight="${p.isING ? 600 : 400}">${nameShort}${caveatMark}</text>
+    </g>`;
+  }).join('');
+
+  const midX = (PAD.left + (W - PAD.right)) / 2;
+  const midY = (PAD.top + (H - PAD.bottom)) / 2;
+  const axisLabels = `
+    <text x="${midX.toFixed(1)}" y="${H - 4}" text-anchor="middle" font-size="10" fill="#4e7090" font-family="JetBrains Mono,monospace">Investment NPS →</text>
+    <text x="12" y="${midY.toFixed(1)}" text-anchor="middle" font-size="10" fill="#4e7090" font-family="JetBrains Mono,monospace" transform="rotate(-90,12,${midY.toFixed(1)})">Inv. Balance (€bn, log) →</text>`;
+
+  const caveatLegend = pts.some(p => p.caveat)
+    ? `<text x="${W - PAD.right}" y="${H - PAD.bottom + 30}" text-anchor="end" font-size="8.5" fill="#FFB800" font-family="JetBrains Mono,monospace">⚠ = scope caveat</text>`
+    : '';
+
+  const svg = `<svg class="nps-scatter-svg" viewBox="0 0 ${W} ${H}">
+    ${gridLines}${xGridLines}${dots}${axisLabels}${caveatLegend}
+  </svg>`;
+
+  return `<div class="nps-scatter-wrap">
+    <div class="nps-scatter-title">NPS vs. Investment Balance</div>
+    <div class="nps-scatter-sub">Each dot = one competitor with both NPS score and published investment balance data. Higher right = stronger NPS and larger balance. ING in orange.</div>
+    ${svg}
+    <div class="nps-scatter-note">⚠ ${d.scatterNote}</div>
+  </div>`;
 }
 
 function handleCardClick(code) {
@@ -3077,6 +3572,7 @@ function handleCardClick(code) {
   document.getElementById('methodology-page').style.display = 'none';
   document.getElementById('update-log-page').style.display = 'none';
   document.getElementById('priba-page').style.display = 'none';
+  document.getElementById('nps-page').style.display = 'none';
   renderTabs();
   updateActiveCard(code);
   renderDeepDive(code);
