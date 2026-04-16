@@ -814,7 +814,6 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 .methodology-box p:last-child{margin-bottom:0}
 
 /* ─── METHODOLOGY PAGE ─── */
-.method-page{}
 .method-hero{
   padding:40px 44px;
   background:linear-gradient(135deg,rgba(167,139,250,0.07) 0%,var(--bg2) 60%);
@@ -2562,32 +2561,32 @@ function renderBars(c) {
   const note = document.getElementById('bar-chart-note');
   const key = state.activeCode;
   const allComps = c.competitors;
-  const withData = allComps.filter(x => !x.isING && x.inv !== null);
-  const noData   = allComps.filter(x => !x.isING && x.inv === null);
   const ingComp  = allComps.find(x => x.isING);
-  if (withData.length === 0) {
+  const withData = allComps.filter(x => x.inv !== null);
+  const noData   = allComps.filter(x => x.inv === null);
+  if (withData.filter(x => !x.isING).length === 0) {
     body.innerHTML = '<div style="padding:24px;text-align:center;font-family:var(--fm);font-size:11px;color:var(--t4);font-style:italic">No Investment Balance data available for this country</div>';
     return;
   }
-  // Sort by inv (AUM + AUC) — shows ING's full position including brokerage
+  // Sort all entries (including ING) by inv descending so ING appears at its natural rank
   const sorted = [...withData].sort((a,b) => (b.inv ?? 0) - (a.inv ?? 0));
-  const ingVal = ingComp ? (ingComp.inv ?? 0) : 0;
-  const maxVal = Math.max(ingVal, ...sorted.map(x => x.inv ?? 0));
+  const maxVal = Math.max(...sorted.map(x => x.inv ?? 0));
   note.textContent = `FY2025 · AUM + AUC combined · Max: €${fmtBn(maxVal)}bn`;
+  const rankBadge = `style="font-size:10px;color:var(--t3);font-family:var(--fm);margin-right:5px;min-width:22px;display:inline-block"`;
   let rows = '';
-  if (ingComp && ingComp.inv !== null) {
-    const pct = Math.round((ingComp.inv / maxVal) * 100);
-    rows += `<div class="bar-row">
-        <div class="bar-name" style="color:var(--orange-text);font-weight:600">${ingComp.name} <span class="ing-badge" style="font-size:8px">ING</span></div>
-        <div class="bar-track"><div class="bar-fill ing-bar" data-target-pct="${pct}" style="width:0%"></div></div>
-        <div class="bar-val" style="color:var(--orange-text)">€${fmtBn(ingComp.inv)}bn</div></div>`;
-  }
-  rows += sorted.map(comp => {
+  rows += sorted.map((comp, i) => {
+    const rank = i + 1;
     const pct = Math.round((comp.inv / maxVal) * 100);
+    if (comp.isING) {
+      return `<div class="bar-row">
+        <div class="bar-name" style="color:var(--orange-text);font-weight:600"><span ${rankBadge}>#${rank}</span>${comp.name} <span class="ing-badge" style="font-size:8px">ING</span></div>
+        <div class="bar-track"><div class="bar-fill ing-bar" data-target-pct="${pct}" style="width:0%"></div></div>
+        <div class="bar-val" style="color:var(--orange-text)">€${fmtBn(comp.inv)}bn</div></div>`;
+    }
     const sc = getScope(comp);
     const dimStyle = sc !== 'country' ? 'opacity:0.8' : '';
     return `<div class="bar-row" style="${dimStyle}">
-        <div class="bar-name" title="${comp.name}${sc==='group'?' — Group-level ⚠':sc==='estimated'?' — Estimated ~':''}">${comp.name}${sc==='group'?'<span style="color:var(--red);font-size:9px;margin-left:4px">⚠</span>':sc==='estimated'?'<span style="color:var(--amber);font-size:9px;margin-left:4px">~</span>':''}</div>
+        <div class="bar-name" title="${comp.name}${sc==='group'?' — Group-level ⚠':sc==='estimated'?' — Estimated ~':''}"><span ${rankBadge}>#${rank}</span>${comp.name}${sc==='group'?'<span style="color:var(--red);font-size:9px;margin-left:4px">⚠</span>':sc==='estimated'?'<span style="color:var(--amber);font-size:9px;margin-left:4px">~</span>':''}</div>
         <div class="bar-track"><div class="bar-fill" data-target-pct="${pct}" style="width:0%"></div></div>
         <div class="bar-val">€${fmtBn(comp.inv)}bn</div></div>`;
   }).join('');
