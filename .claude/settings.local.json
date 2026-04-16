@@ -93,7 +93,8 @@
       "Bash(pdftotext -layout \"/c/Users/SARP/Desktop/Devs/Investments analysis/data/Europe's largest private banks by AUM_NNA - Euromoney.pdf\" -)",
       "Bash(pdftotext -layout \"Europe's largest private banks by AUM_NNA - Euromoney.pdf\" -)",
       "Bash(npm list *)",
-      "Bash(powershell.exe *)"
+      "Bash(powershell.exe *)",
+      "Bash(C:/Users/SARP/AppData/Local/Python/bin/python.exe *)"
     ]
   }
 }
