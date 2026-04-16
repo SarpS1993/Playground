@@ -1935,7 +1935,6 @@ function fmt(v, dec=1) {
 }
 function fmtBn(v) {
   if (v === null || v === undefined) return null;
-  if (v >= 1000) return (v/1000).toFixed(1) + 'k';
   return v < 10 ? v.toFixed(1) : Math.round(v).toLocaleString('en-US');
 }
 function nullCell(v, suf='') {
@@ -3146,14 +3145,10 @@ document.addEventListener('DOMContentLoaded', () => {
       var p = Math.min((now - start) / durationMs, 1);
       var eased = 1 - Math.pow(1 - p, 3);
       var v = target * eased;
-      el.textContent = v >= 1000
-        ? (v / 1000).toFixed(1) + 'k'
-        : Math.round(v).toLocaleString('en-US');
+      el.textContent = Math.round(v).toLocaleString('en-US');
       if (p < 1) { requestAnimationFrame(tick); }
       else {
-        el.textContent = target >= 1000
-          ? (target / 1000).toFixed(1) + 'k'
-          : Math.round(target).toLocaleString('en-US');
+        el.textContent = Math.round(target).toLocaleString('en-US');
       }
     }
     requestAnimationFrame(tick);
@@ -3164,7 +3159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!grid || typeof DATA === 'undefined' || typeof FLAGS === 'undefined') return;
     DATA.forEach(function(c, i) {
       var inv = c.market.inv.v;
-      var unit = inv >= 1000 ? 'tn' : 'bn';
+      var unit = 'bn';
       var tile = document.createElement('div');
       tile.className = 'lp-country-tile';
       tile.innerHTML =
@@ -3182,7 +3177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       (function(tile, inv) {
         setTimeout(function() {
           var numEl = tile.querySelector('.lp-count-' + c.code);
-          if (numEl) countUp(numEl, inv >= 1000 ? inv / 1000 : inv, 1100);
+          if (numEl) countUp(numEl, inv, 1100);
         }, delay);
       })(tile, inv);
     });
