@@ -4174,7 +4174,14 @@ document.addEventListener('DOMContentLoaded', () => {
       var el = document.getElementById(pair[0]);
       var delay = pair[1];
       if (!el) return;
-      var len = el.getTotalLength();
+      var len = 0;
+      try { len = el.getTotalLength(); } catch(e) {}
+      if (!len || len <= 0) {
+        // getTotalLength() failed (file://, hidden parent, etc.) — just show the path
+        el.style.strokeDasharray = 'none';
+        el.style.strokeDashoffset = '0';
+        return;
+      }
       el.style.strokeDasharray = len;
       el.style.strokeDashoffset = len;
       setTimeout(function() {
