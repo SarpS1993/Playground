@@ -321,6 +321,35 @@ body::after{
 }
 .update-log-desc{font-size:13.5px;color:var(--t2);line-height:1.65;max-width:680px}
 
+/* ─── FINAL VERSION ENTRY ─── */
+.update-log-final{
+  border-left:2px solid rgba(212,168,83,0.45);
+  background:linear-gradient(90deg,rgba(212,168,83,0.045) 0%,transparent 60%);
+  border-radius:0 var(--r12) var(--r12) 0;
+  margin-left:20px;
+  padding:18px 0 38px 32px;
+}
+.update-log-final::before{
+  background:linear-gradient(135deg,#d4a853,#f0c97a);
+  box-shadow:0 0 16px rgba(212,168,83,0.7),0 0 32px rgba(212,168,83,0.25);
+  width:14px;height:14px;left:-8px;top:24px;
+}
+.update-log-date-final{
+  color:#d4a853;font-weight:500;
+}
+.update-log-final-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--fm);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
+  color:#d4a853;background:rgba(212,168,83,0.1);
+  border:1px solid rgba(212,168,83,0.3);border-radius:4px;
+  padding:3px 10px 3px 8px;margin-bottom:8px;width:fit-content;
+}
+.update-log-title-final{
+  font-family:var(--fd);font-size:22px;font-weight:700;letter-spacing:-0.4px;
+  background:linear-gradient(125deg,#f0c97a 0%,#d4a853 40%,#e8c069 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
 /* ─── PRIBA PAGE ─── */
 .priba-page{margin-top:0}
 .priba-disclaimer{
@@ -1609,7 +1638,7 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
     <div class="header-meta">
       <span class="meta-badge badge-period">FY2025 · Country-Specific Data</span>
       <div class="header-dot"></div>
-      <span class="meta-badge badge-date" id="gen-date">Generated: 16 Apr 2026 23:47</span>
+      <span class="meta-badge badge-date" id="gen-date">Generated: 17 Apr 2026 · Final Version</span>
       <div class="header-dot"></div>
       <span class="meta-badge badge-confidential">⬤ Confidential</span>
       <div class="header-dot"></div>
@@ -1796,7 +1825,7 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-credit">Data compiled by Claude Code for ING Investments Strategy · Generated 15 Apr 2026 04:13</div>
+    <div class="footer-credit">Data compiled by Claude Code for ING Investments Strategy · Generated 17 Apr 2026 · Final Version</div>
     <div class="footer-disclaimer">All data sourced from official public disclosures. FY2025 figures used throughout; where unavailable, most recent published data is used and noted. Country-specific figures used wherever available — group-level figures are flagged. See Data Quality tab for scope caveats.</div>
   </div>
 </footer>
@@ -1850,6 +1879,36 @@ const ING_GROUP = {
   note: "Country-level breakdown not publicly disclosed by ING Group",
   url: "https://www.ing.com/Newsroom/News/Press-releases/4QFY2024-ING-press-release.htm"
 };
+// ┌─────────────────────────────────────────────────────────────────────────┐
+// │  DASHBOARD SCRIPT — section index                                       │
+// │                                                                         │
+// │  [DATA]        ING_DATA, ING_ENTRY, UPDATE_LOG ............. ~ln 1853   │
+// │  [DATA]        exportToExcel() ............................ ~ln 1917     │
+// │  [DATA]        const DATA (6 country objects) ............. ~ln 1981     │
+// │  [DATA]        const CAVEATS ............................. ~ln 2092      │
+// │  [DATA]        const NPS_DATA ............................ ~ln 2269      │
+// │  [DATA]        const PRIBA_DATA .......................... ~ln 2231      │
+// │  [STATE]       state{} .................................. ~ln 2138        │
+// │  [UTILS]       fmt, fmtBn, nullCell, flag, getScope ....... ~ln 2150    │
+// │  [UTILS]       animateCount, observeCountUps .............. ~ln 2200    │
+// │  [RENDER]      renderTabs() ............................. ~ln 2521       │
+// │  [RENDER]      renderMarketCards() ....................... ~ln 2562       │
+// │  [RENDER]      renderMarketShare() ....................... ~ln 2613       │
+// │  [RENDER]      renderDeepDive(code) ...................... ~ln 2829       │
+// │  [RENDER]      renderKPIs(c) ............................ ~ln 2844        │
+// │  [RENDER]      renderTable(c) ........................... ~ln 2879        │
+// │  [RENDER]      renderBars(c) ............................ ~ln 2922        │
+// │  [RENDER]      renderCaveats() .......................... ~ln 2975        │
+// │  [RENDER]      renderSources / renderSourcesPage() ....... ~ln 3076     │
+// │  [RENDER]      renderDisclaimer() ....................... ~ln 3211        │
+// │  [RENDER]      renderMethodologyPage() .................. ~ln 3336        │
+// │  [RENDER]      renderUpdateLog() ....................... ~ln 1894         │
+// │  [RENDER]      renderNpsPage / renderNpsDetail / renderNpsScatter ~ln 3579│
+// │  [RENDER]      renderPribaPage() ....................... ~ln 2410         │
+// │  [EVENTS]      handleCardClick, handleMShareClick, handleSort ~ln 3833   │
+// │  [INIT]        DOMContentLoaded ......................... ~ln 3895        │
+// └─────────────────────────────────────────────────────────────────────────┘
+
 const ING_DATA = {
   "Germany":     {name:"ING Germany",     isING:true, type:"ING — Internal Data", aum:13.8, auc:120.8, inv:134.6, clients:2.514, rev:371, period:"FY2025", url:"https://www.ing.com/Investor-relations.htm"},
   "Belgium":     {name:"ING Belgium",     isING:true, type:"ING — Internal Data", aum:43.1, auc:4.6,  inv:47.7,  clients:0.573, rev:170, period:"FY2025", url:"https://www.ing.com/Investor-relations.htm"},
@@ -1864,6 +1923,12 @@ const ING_ENTRY = (country) => ING_DATA[country];
 //  UPDATE LOG
 // ══════════════════════════════════════════
 const UPDATE_LOG = [
+  {
+    date: '2026-04-17',
+    final: true,
+    title: 'Final Version — Dashboard Review & Quality Pass',
+    desc: 'Completed a full technical and design review of the dashboard. Three targeted improvements shipped: (1) NPS scatter plot now shows scope-indicator rings — dashed red for group-level figures (UniCredit IT, DEGIRO NL) and dashed amber for estimated figures, with an in-chart legend, so analytical caveats are visible directly on the visualisation rather than only in footnotes. (2) ING competitive rank (#N of N by total invested balances) added to the expanded Market Penetration card for each country, colour-coded green if #1, white if top half, muted if bottom half. (3) JS script block gains a structured section index at the top listing every major section with its approximate line number, making future edits significantly easier in a single-file 1.1MB document. "Updating This Dashboard" reference table updated to reflect current line numbers post-refactor. Dashboard marked as final production version.'
+  },
   {
     date: '2026-04-16',
     title: 'NPS Ranking Tab',
@@ -1900,7 +1965,18 @@ function renderUpdateLog() {
       <div class="section-desc">Major feature additions and data updates · most recent first</div>
     </div>
     <div class="update-log-timeline">
-      ${UPDATE_LOG.map(e => `
+      ${UPDATE_LOG.map(e => e.final ? `
+        <div class="update-log-entry update-log-final">
+          <div class="update-log-date update-log-date-final">${e.date}</div>
+          <div class="update-log-body">
+            <div class="update-log-final-badge">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><path d="M8 1.5l1.7 3.4 3.8.55-2.75 2.68.65 3.77L8 10l-3.4 1.9.65-3.77L2.5 5.45l3.8-.55L8 1.5z" fill="#d4a853" stroke="#d4a853" stroke-width="0.5" stroke-linejoin="round"/></svg>
+              Final Version
+            </div>
+            <div class="update-log-title update-log-title-final">${e.title}</div>
+            <div class="update-log-desc">${e.desc}</div>
+          </div>
+        </div>` : `
         <div class="update-log-entry">
           <div class="update-log-date">${e.date}</div>
           <div class="update-log-body">
@@ -2632,6 +2708,12 @@ function renderMarketShare() {
     const leaderLabel = pAuc === maxPct ? 'AUC leader' : pAum === maxPct ? 'AUM leader' : 'Total leader';
     const showBadge = maxPct >= 5;
 
+    // Compute ING's rank by total invested balances among all competitors with data
+    const compsWithInv = c.competitors.filter(x => !x.isING && x.inv !== null);
+    const ingAboveCount = compsWithInv.filter(x => x.inv > ing.inv).length;
+    const ingRank = ingAboveCount + 1;
+    const ingRankTotal = compsWithInv.length + 1; // +1 to include ING itself
+
     // ── Normal card (3-col grid default) ──
     const normalContent = `
       <div class="mshare-normal-content">
@@ -2694,6 +2776,7 @@ function renderMarketShare() {
             <div class="mshare-exp-ing-row"><span class="mshare-exp-ing-key">AUM (Funds)</span><span class="mshare-exp-ing-val pct-aum">€${ing.aum}bn</span></div>
             <div class="mshare-exp-ing-row"><span class="mshare-exp-ing-key">AUC (Direct)</span><span class="mshare-exp-ing-val pct-auc">€${ing.auc}bn</span></div>
             <div class="mshare-exp-ing-row"><span class="mshare-exp-ing-key">Total Inv.</span><span class="mshare-exp-ing-val pct-total">€${ing.inv}bn</span></div>
+            ${ingRankTotal > 1 ? `<div class="mshare-exp-ing-row" style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,85,0,0.12)"><span class="mshare-exp-ing-key">Rank vs peers</span><span class="mshare-exp-ing-val" style="color:${ingRank === 1 ? 'var(--green)' : ingRank <= Math.ceil(ingRankTotal/2) ? 'var(--t1)' : 'var(--t3)'}">#${ingRank} of ${ingRankTotal}</span></div>` : ''}
           </div>
         </div>
         <div class="mshare-exp-right">
@@ -3252,7 +3335,7 @@ function renderDisclaimer() {
         For reference, if you would like to update the dashboard in the future, the necessary lines to edit in <strong>dashboard.html</strong> are listed below.
       </div>
 
-      <div style="margin-top:20px;font-family:var(--fb);font-size:11px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">1 — ING Figures &nbsp;·&nbsp; lines 1756–1761</div>
+      <div style="margin-top:20px;font-family:var(--fb);font-size:11px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">1 — ING Figures &nbsp;·&nbsp; lines 1883–1889 (const ING_DATA)</div>
       <table class="priba-table" style="margin-bottom:24px">
         <thead><tr>
           <th>Country</th>
@@ -3260,46 +3343,46 @@ function renderDisclaimer() {
           <th>Fields</th>
         </tr></thead>
         <tbody>
-          <tr><td>🇩🇪 Germany</td><td style="text-align:center">1756</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇧🇪 Belgium</td><td style="text-align:center">1757</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇪🇸 Spain</td><td style="text-align:center">1758</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇮🇹 Italy</td><td style="text-align:center">1759</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇳🇱 Netherlands</td><td style="text-align:center">1760</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇵🇱 Poland</td><td style="text-align:center">1761</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇩🇪 Germany</td><td style="text-align:center">1884</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇧🇪 Belgium</td><td style="text-align:center">1885</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇪🇸 Spain</td><td style="text-align:center">1886</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇮🇹 Italy</td><td style="text-align:center">1887</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇳🇱 Netherlands</td><td style="text-align:center">1888</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇵🇱 Poland</td><td style="text-align:center">1889</td><td style="color:var(--t2)">aum, auc, inv, clients, rev, period</td></tr>
         </tbody>
       </table>
 
-      <div style="font-family:var(--fb);font-size:11px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">2 — NPS Data &nbsp;·&nbsp; lines 2172–2304</div>
+      <div style="font-family:var(--fb);font-size:11px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">2 — NPS Data &nbsp;·&nbsp; lines 2299–2431 (const NPS_DATA)</div>
       <table class="priba-table" style="margin-bottom:24px">
         <thead><tr>
           <th>Country</th>
-          <th style="text-align:center">Lines</th>
+          <th style="text-align:center">Lines (approx.)</th>
           <th>What to update</th>
         </tr></thead>
         <tbody>
-          <tr><td>🇧🇪 Belgium</td><td style="text-align:center">2172–2196</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
-          <tr><td>🇩🇪 Germany</td><td style="text-align:center">2197–2213</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list</td></tr>
-          <tr><td>🇮🇹 Italy</td><td style="text-align:center">2214–2239</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
-          <tr><td>🇳🇱 Netherlands</td><td style="text-align:center">2240–2260</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
-          <tr><td>🇵🇱 Poland</td><td style="text-align:center">2261–2279</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
-          <tr><td>🇪🇸 Spain</td><td style="text-align:center">2280–2304</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+          <tr><td>🇧🇪 Belgium</td><td style="text-align:center">2300–2326</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+          <tr><td>🇩🇪 Germany</td><td style="text-align:center">2327–2343</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list</td></tr>
+          <tr><td>🇮🇹 Italy</td><td style="text-align:center">2344–2369</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+          <tr><td>🇳🇱 Netherlands</td><td style="text-align:center">2370–2390</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+          <tr><td>🇵🇱 Poland</td><td style="text-align:center">2391–2409</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
+          <tr><td>🇪🇸 Spain</td><td style="text-align:center">2410–2431</td><td style="color:var(--t2)">Monthly NPS scores (jan/feb/mar), ranks, competitor list, scatter points</td></tr>
         </tbody>
       </table>
 
-      <div style="font-family:var(--fb);font-size:11px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">3 — Competitor Market Data &nbsp;·&nbsp; lines 1942–2048</div>
+      <div style="font-family:var(--fb);font-size:11px;color:var(--t3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">3 — Competitor Market Data &nbsp;·&nbsp; lines 2011–2120 (const DATA)</div>
       <table class="priba-table">
         <thead><tr>
           <th>Country</th>
-          <th style="text-align:center">Lines</th>
+          <th style="text-align:center">Lines (approx.)</th>
           <th>What to update</th>
         </tr></thead>
         <tbody>
-          <tr><td>🇩🇪 Germany</td><td style="text-align:center">1943–1959</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇧🇪 Belgium</td><td style="text-align:center">1960–1976</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇪🇸 Spain</td><td style="text-align:center">1977–1994</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇮🇹 Italy</td><td style="text-align:center">1995–2012</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇳🇱 Netherlands</td><td style="text-align:center">2013–2029</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
-          <tr><td>🇵🇱 Poland</td><td style="text-align:center">2030–2048</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇩🇪 Germany</td><td style="text-align:center">2012–2030</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇧🇪 Belgium</td><td style="text-align:center">2031–2047</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇪🇸 Spain</td><td style="text-align:center">2048–2064</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇮🇹 Italy</td><td style="text-align:center">2065–2082</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇳🇱 Netherlands</td><td style="text-align:center">2083–2099</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
+          <tr><td>🇵🇱 Poland</td><td style="text-align:center">2100–2120</td><td style="color:var(--t2)">Market AUM/AUC/inv figures; competitor aum, auc, inv, clients, rev, period</td></tr>
         </tbody>
       </table>
     </div>
@@ -3791,20 +3874,33 @@ function renderNpsScatter(code) {
       <text x="${x.toFixed(1)}" y="${H - PAD.bottom + 14}" text-anchor="middle" font-size="9" fill="#4e7090" font-family="JetBrains Mono,monospace">${v}</text>`;
   }).join('');
 
+  // Derive scope for each scatter point using the same getScope logic
+  function scatterScope(p) {
+    if (p.isING) return 'country';
+    if (p.caveat) return 'group';
+    return 'country';
+  }
+  const scopeRingColor = { country: null, estimated: '#FFB800', group: '#FF2D78' };
+
   const dots = pts.map(p => {
     const cx = xPos(p.nps).toFixed(1);
     const cy = yPos(p.inv).toFixed(1);
     const r = p.isING ? 7 : 5.5;
     const fill = p.isING ? 'rgba(255,85,0,0.88)' : 'rgba(0,212,255,0.65)';
-    const stroke = p.isING ? '#FF5500' : (p.caveat ? '#FFB800' : '#00D4FF');
-    const strokeW = p.caveat ? 1.5 : (p.isING ? 2 : 1);
-    const strokeDash = p.caveat ? '3,2' : 'none';
+    const sc = scatterScope(p);
+    const ringColor = p.isING ? '#FF5500' : (scopeRingColor[sc] || '#00D4FF');
+    const strokeW = (sc === 'group' || sc === 'estimated') ? 2 : (p.isING ? 2 : 1);
+    const strokeDash = sc === 'group' ? '3,2' : sc === 'estimated' ? '4,2' : 'none';
     const labelDy = p.isING ? -12 : -10;
     const nameShort = p.name.length > 16 ? p.name.slice(0, 15) + '…' : p.name;
-    const caveatMark = p.caveat ? ' ⚠' : '';
+    const scopeMark = sc === 'group' ? ' ⚠' : sc === 'estimated' ? ' ~' : '';
+    // Outer glow ring for non-country scope
+    const outerRing = (sc === 'group' || sc === 'estimated')
+      ? `<circle cx="${cx}" cy="${cy}" r="${r + 4}" fill="none" stroke="${ringColor}" stroke-width="1" stroke-dasharray="${strokeDash}" opacity="0.45"/>`
+      : '';
     return `<g>
-      <circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeW}" stroke-dasharray="${strokeDash}"/>
-      <text x="${cx}" y="${(parseFloat(cy) + labelDy).toFixed(1)}" text-anchor="middle" font-size="9.5" fill="${p.isING ? '#FF7A3D' : '#8fb8d8'}" font-family="Outfit,sans-serif" font-weight="${p.isING ? 600 : 400}">${nameShort}${caveatMark}</text>
+      ${outerRing}<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="${ringColor}" stroke-width="${strokeW}" stroke-dasharray="${strokeDash}"/>
+      <text x="${cx}" y="${(parseFloat(cy) + labelDy).toFixed(1)}" text-anchor="middle" font-size="9.5" fill="${p.isING ? '#FF7A3D' : '#8fb8d8'}" font-family="Outfit,sans-serif" font-weight="${p.isING ? 600 : 400}">${nameShort}${scopeMark}</text>
     </g>`;
   }).join('');
 
@@ -3814,9 +3910,12 @@ function renderNpsScatter(code) {
     <text x="${midX.toFixed(1)}" y="${H - 4}" text-anchor="middle" font-size="10" fill="#4e7090" font-family="JetBrains Mono,monospace">Investment NPS →</text>
     <text x="12" y="${midY.toFixed(1)}" text-anchor="middle" font-size="10" fill="#4e7090" font-family="JetBrains Mono,monospace" transform="rotate(-90,12,${midY.toFixed(1)})">Inv. Balance (€bn, log) →</text>`;
 
-  const caveatLegend = pts.some(p => p.caveat)
-    ? `<text x="${W - PAD.right}" y="${H - PAD.bottom + 30}" text-anchor="end" font-size="8.5" fill="#FFB800" font-family="JetBrains Mono,monospace">⚠ = scope caveat</text>`
-    : '';
+  const hasGroup = pts.some(p => scatterScope(p) === 'group');
+  const hasEst   = pts.some(p => scatterScope(p) === 'estimated');
+  const legendItems = [];
+  if (hasGroup) legendItems.push(`<text x="${W - PAD.right}" y="${H - PAD.bottom + 22}" text-anchor="end" font-size="8.5" fill="#FF2D78" font-family="JetBrains Mono,monospace">⚠ dashed red ring = group-level scope</text>`);
+  if (hasEst)   legendItems.push(`<text x="${W - PAD.right}" y="${H - PAD.bottom + ${22 + (hasGroup ? 12 : 0)}}" text-anchor="end" font-size="8.5" fill="#FFB800" font-family="JetBrains Mono,monospace">~ dashed amber ring = estimated scope</text>`);
+  const caveatLegend = legendItems.join('');
 
   const svg = `<svg class="nps-scatter-svg" viewBox="0 0 ${W} ${H}">
     ${gridLines}${xGridLines}${dots}${axisLabels}${caveatLegend}
