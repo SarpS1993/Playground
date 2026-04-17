@@ -3913,8 +3913,10 @@ function renderNpsScatter(code) {
   const hasGroup = pts.some(p => scatterScope(p) === 'group');
   const hasEst   = pts.some(p => scatterScope(p) === 'estimated');
   const legendItems = [];
-  if (hasGroup) legendItems.push(`<text x="${W - PAD.right}" y="${H - PAD.bottom + 22}" text-anchor="end" font-size="8.5" fill="#FF2D78" font-family="JetBrains Mono,monospace">⚠ dashed red ring = group-level scope</text>`);
-  if (hasEst)   legendItems.push(`<text x="${W - PAD.right}" y="${H - PAD.bottom + ${22 + (hasGroup ? 12 : 0)}}" text-anchor="end" font-size="8.5" fill="#FFB800" font-family="JetBrains Mono,monospace">~ dashed amber ring = estimated scope</text>`);
+  const legendY1 = H - PAD.bottom + 22;
+  const legendY2 = H - PAD.bottom + (hasGroup ? 34 : 22);
+  if (hasGroup) legendItems.push(`<text x="${W - PAD.right}" y="${legendY1}" text-anchor="end" font-size="8.5" fill="#FF2D78" font-family="JetBrains Mono,monospace">⚠ dashed red ring = group-level scope</text>`);
+  if (hasEst)   legendItems.push(`<text x="${W - PAD.right}" y="${legendY2}" text-anchor="end" font-size="8.5" fill="#FFB800" font-family="JetBrains Mono,monospace">~ dashed amber ring = estimated scope</text>`);
   const caveatLegend = legendItems.join('');
 
   const svg = `<svg class="nps-scatter-svg" viewBox="0 0 ${W} ${H}">
