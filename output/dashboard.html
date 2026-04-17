@@ -130,6 +130,7 @@ body::after{
   display:inline-flex;align-items:center;gap:7px;
   font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
   padding:5px 13px;border-radius:5px;border:1px solid;
+  flex-shrink:1;min-width:0;overflow:hidden;white-space:nowrap;
 }
 .badge-date{color:var(--t3);border-color:var(--border2);background:var(--bg3);padding:5px 9px}
 .badge-period{color:var(--orange-text);border-color:var(--orange-dim);background:var(--orange-dim)}
@@ -1192,9 +1193,6 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 .separator{width:100%;height:1px;background:var(--border);margin:38px 0}
 .scroll-target{scroll-margin-top:100px}
 
-@media(max-width:1300px){
-  .meta-badge,.header-dot{display:none}
-}
 @media(max-width:768px){
   .site-header{padding:0 22px}
   .country-nav-inner{padding:0 22px}
