@@ -100,7 +100,7 @@ body::after{
   display:flex;align-items:center;justify-content:space-between;
   height:84px;gap:24px;
 }
-.header-brand{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.header-brand{display:flex;align-items:center;gap:20px;flex-shrink:0;min-width:0}
 .ing-logo{
   display:flex;align-items:center;justify-content:center;
   width:54px;height:54px;
@@ -125,7 +125,7 @@ body::after{
   font-family:var(--fm);font-size:10px;color:var(--t3);
   letter-spacing:0.1em;text-transform:uppercase;
 }
-.header-meta{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.header-meta{display:flex;align-items:center;gap:14px;flex-shrink:0;overflow:hidden}
 .meta-badge{
   display:inline-flex;align-items:center;gap:7px;
   font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
@@ -1192,6 +1192,9 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 .separator{width:100%;height:1px;background:var(--border);margin:38px 0}
 .scroll-target{scroll-margin-top:100px}
 
+@media(max-width:1300px){
+  .meta-badge,.header-dot{display:none}
+}
 @media(max-width:768px){
   .site-header{padding:0 22px}
   .country-nav-inner{padding:0 22px}
@@ -1419,7 +1422,7 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
   to{transform:scaleX(1)}
 }
 
-@media(max-width:1100px){
+@media(max-width:1300px){
   .lp-inner{grid-template-columns:1fr;padding:52px 0;gap:36px}
   .lp-right{display:none}
   .lp-headline{font-size:48px;letter-spacing:-1.5px}
