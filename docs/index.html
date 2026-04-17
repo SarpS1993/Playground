@@ -1527,6 +1527,12 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
 @keyframes lpRule{
   to{transform:scaleX(1)}
 }
+@media (prefers-reduced-motion: reduce) {
+  .lp-reveal{opacity:1;transform:none;animation:none}
+  .lp-rule-reveal{animation:none;transform:scaleX(1)}
+  .lp-chart-svg path{stroke-dashoffset:0!important;transition:none!important}
+}
+
 
 @media(max-width:1300px){
   .lp-inner{grid-template-columns:1fr;padding:52px 0;gap:36px}
