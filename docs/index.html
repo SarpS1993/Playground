@@ -93,14 +93,14 @@ body::after{
   border-bottom:1px solid rgba(255,85,0,0.14);
   background:rgba(3,8,16,0.93);
   backdrop-filter:blur(26px);
-  padding:0 56px;
+  padding:0 clamp(20px,3vw,48px);
 }
 .header-inner{
-  max-width:1580px;margin:0 auto;
+  max-width:1440px;margin:0 auto;
   display:flex;align-items:center;justify-content:space-between;
-  height:84px;gap:28px;
+  height:84px;gap:24px;
 }
-.header-brand{display:flex;align-items:center;gap:20px}
+.header-brand{display:flex;align-items:center;gap:20px;flex-shrink:0}
 .ing-logo{
   display:flex;align-items:center;justify-content:center;
   width:54px;height:54px;
@@ -131,8 +131,7 @@ body::after{
   font-family:var(--fm);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
   padding:5px 13px;border-radius:5px;border:1px solid;
 }
-.badge-confidential{color:var(--amber);border-color:rgba(255,184,0,0.28);background:rgba(255,184,0,0.07)}
-.badge-date{color:var(--t3);border-color:var(--border2);background:var(--bg3)}
+.badge-date{color:var(--t3);border-color:var(--border2);background:var(--bg3);padding:5px 9px}
 .badge-period{color:var(--orange-text);border-color:var(--orange-dim);background:var(--orange-dim)}
 .header-dot{width:4px;height:4px;border-radius:50%;background:var(--border3)}
 
@@ -144,7 +143,7 @@ body::after{
   backdrop-filter:blur(30px);
 }
 .country-nav-inner{
-  max-width:1580px;margin:0 auto;
+  max-width:1440px;margin:0 auto;
   padding:0 clamp(16px,3vw,56px);
   display:flex;flex-direction:column;
 }
@@ -428,7 +427,7 @@ body::after{
 .nav-label{font-family:var(--fm);font-size:10px;color:var(--t4);letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
 
 /* ─── MAIN ─── */
-.main{max-width:1580px;margin:0 auto;padding:0 56px 110px;position:relative;z-index:1}
+.main{max-width:1440px;margin:0 auto;padding:0 clamp(20px,3vw,48px) 110px;position:relative;z-index:1}
 .section-head{display:flex;align-items:baseline;justify-content:space-between;margin:52px 0 30px;gap:24px}
 .section-title{font-family:var(--fd);font-size:27px;font-weight:700;color:var(--t1);letter-spacing:-0.4px}
 .section-eyebrow{font-family:var(--fm);font-size:10px;color:var(--t3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px}
@@ -1639,8 +1638,6 @@ tbody td:first-child{color:var(--t1);font-size:14px;font-family:var(--fb)}
       <span class="meta-badge badge-period">FY2025 · Country-Specific Data</span>
       <div class="header-dot"></div>
       <span class="meta-badge badge-date" id="gen-date">Generated: 17 Apr 2026 · Final Version</span>
-      <div class="header-dot"></div>
-      <span class="meta-badge badge-confidential">⬤ Confidential</span>
       <div class="header-dot"></div>
       <button class="btn-export-excel" onclick="exportToExcel()">
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 3.5C2 2.67 2.67 2 3.5 2h5.086a1.5 1.5 0 0 1 1.06.44l2.915 2.914A1.5 1.5 0 0 1 13 6.414V11.5A1.5 1.5 0 0 1 11.5 13h-8A1.5 1.5 0 0 1 2 11.5v-8Z" stroke="currentColor" stroke-width="1.2"/><path d="M9 2v3.5H12.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M4.5 9l1.5 1.5L7.5 9M6 10.5V7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
