@@ -1927,7 +1927,11 @@ const UPDATE_LOG = [
     date: '2026-04-17',
     final: true,
     title: 'Final Version — Dashboard Review & Quality Pass',
-    desc: 'Completed a full technical and design review of the dashboard. Three targeted improvements shipped: (1) NPS scatter plot now shows scope-indicator rings — dashed red for group-level figures (UniCredit IT, DEGIRO NL) and dashed amber for estimated figures, with an in-chart legend, so analytical caveats are visible directly on the visualisation rather than only in footnotes. (2) ING competitive rank (#N of N by total invested balances) added to the expanded Market Penetration card for each country, colour-coded green if #1, white if top half, muted if bottom half. (3) JS script block gains a structured section index at the top listing every major section with its approximate line number, making future edits significantly easier in a single-file 1.1MB document. "Updating This Dashboard" reference table updated to reflect current line numbers post-refactor. Dashboard marked as final production version.'
+    desc: `<ol style="margin:8px 0 0 0;padding-left:18px;display:flex;flex-direction:column;gap:7px;list-style:none">
+              <li style="display:flex;gap:10px"><span style="color:#d4a853;font-weight:700;flex-shrink:0">1.</span><span><strong style="color:var(--t1);font-weight:600">Analytical caveats on-chart</strong> — Scope indicators (group vs. estimated figures) now appear directly on the NPS scatter plot via dashed rings, eliminating reliance on footnotes alone.</span></li>
+              <li style="display:flex;gap:10px"><span style="color:#d4a853;font-weight:700;flex-shrink:0">2.</span><span><strong style="color:var(--t1);font-weight:600">Competitive rank visible</strong> — ING's rank by total invested balances (#N of N) added to each country's Market Penetration card, colour-coded by position.</span></li>
+              <li style="display:flex;gap:10px"><span style="color:#d4a853;font-weight:700;flex-shrink:0">3.</span><span><strong style="color:var(--t1);font-weight:600">Future updates on ING computers</strong> — Structured section index added to the codebase, with updated line references on "How to Update This Dashboard" section, to support efficient future edits directly on the code on ING computers.</span></li>
+            </ol>`
   },
   {
     date: '2026-04-16',
